@@ -1,3 +1,3 @@
-# R Strategy Assistant - Backend
+# R Strategy Assistant
 
 **Development in Progress**
