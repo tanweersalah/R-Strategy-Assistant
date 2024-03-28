@@ -30,12 +30,11 @@ a:hover {
   background-color: hsla(160, 100%, 37%, 0.2);
 }
 .footer-content {
-  position: fixed;
   bottom: 0;
-  left: 0;
+
   width: 100%;
-  background-color: #f2f2f271;
-  padding: 10px;
+  background-color: #f3fcf0;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
