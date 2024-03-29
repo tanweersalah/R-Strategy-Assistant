@@ -90,6 +90,7 @@ import Searchbar from "../components/Searchbar.vue";
 
 .r-strategy-logo {
   width: 40%;
+  padding-top: 40px;
 }
 h1 {
   font-size: 16px;

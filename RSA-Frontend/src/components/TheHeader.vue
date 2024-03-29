@@ -10,9 +10,7 @@
           />
         </router-link>
       </div>
-      <div class="message">
-        <p>Welcome Tanweer!</p>
-      </div>
+      <div class="message"></div>
       <div class="profile_menu">
         <img
           alt="Profile image"
