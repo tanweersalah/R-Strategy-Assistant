@@ -2,9 +2,22 @@
   <div class="search-container">
     <input type="text" class="search-input" placeholder=" " />
     <label class="search-placeholder">Enter VIN to Search</label>
-    <button class="search-button"><i class="fa fa-search"></i></button>
+
+    <button class="search-button" @click="redirectToSearch">
+      <i class="fa fa-search"></i>
+    </button>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    redirectToSearch() {
+      this.$router.push("/search");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .search-container {

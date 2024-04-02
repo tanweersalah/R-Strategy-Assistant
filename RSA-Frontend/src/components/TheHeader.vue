@@ -60,7 +60,7 @@
 }
 
 .profile_menu img {
-  width: 20px%;
+  width: 50px;
   height: 100%;
   border-radius: 12px;
   border: 1px solid #ccc;
