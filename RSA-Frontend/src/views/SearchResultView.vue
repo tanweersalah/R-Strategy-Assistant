@@ -10,7 +10,8 @@
         v-for="(car, index) in cars"
         :key="index"
         :image-url="car.imageUrl"
-        :details="car.details"
+        :detailsData="car.detailsData"
+        :viewDetailsButton="true"
       />
     </div>
   </div>
@@ -31,18 +32,18 @@ export default {
         {
           imageUrl:
             "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
-          details: [
-            { label: "Make", value: "Toyota" },
-            { label: "Model", value: "Camry" },
-            { label: "Year", value: "2022" },
-            { label: "Color", value: "Silver" },
-            { label: "Mileage", value: "10,000 miles" },
-            { label: "Fuel Type", value: "Gasoline" },
-            { label: "Engine Size", value: "2.5L" },
-            { label: "Transmission", value: "Automatic" },
-            { label: "Drive Type", value: "Front-wheel drive" },
-            { label: "Condition", value: "Used" },
-          ],
+          detailsData: {
+            kbaNumber: "OBASX12312AS",
+            vehicleBrand: "Volkswagen",
+            fuelType: "Diesel",
+            firstRegistration: "12.12.2020",
+            certificateOfRegistration: "OBASX12312AS",
+            internalReference: "UP1273S23",
+            vehicleModel: "GOLF",
+            vin: "124451SX12AS",
+            mileage: "123478",
+            damage: "Accident Vehicle",
+          },
         },
       ],
     };

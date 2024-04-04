@@ -55,8 +55,8 @@ export default {
 .search-input:focus + .search-placeholder,
 .search-input:not(:placeholder-shown) + .search-placeholder {
   top: 0;
-  font-size: 10px; /* Adjust font size when moved */
-  color: #2b2a2a; /* Adjust color when moved */
+  font-size: 10px;
+  color: #2b2a2a;
 }
 
 /* Search button */
