@@ -4,11 +4,6 @@
     @mouseover="isHovered = true"
     @mouseleave="isHovered = false"
   >
-    <div class="card-content" v-if="viewDetailsButton" v-show="isHovered">
-      <button class="view-details" @click="redirectToDetails">
-        View Details
-      </button>
-    </div>
     <div class="image-container">
       <img :src="imageUrl" alt="Image" class="thumbnail" />
     </div>
@@ -62,6 +57,11 @@
         </div>
       </div>
     </div>
+    <div class="button-container" v-if="viewDetailsButton" v-show="isHovered">
+      <button class="view-details-button" @click="redirectToDetails">
+        View Details
+      </button>
+    </div>
   </div>
 </template>
 <script>
@@ -87,7 +87,7 @@ export default {
 <style scoped>
 .search-result-card {
   display: flex;
-  width: 100%;
+
   max-height: 200px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -152,31 +152,32 @@ export default {
   cursor: pointer;
 }
 
-.card-content {
+.button-container {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  bottom: 0;
+  right: 0;
+  width: 20%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.099);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out 1s;
+  transition: opacity 1s ease-in-out 3s;
+  transition-delay: 1s;
 }
 
-.view-details {
+.view-details-button {
   padding: 8px 16px;
-  background-color: #333;
-  color: white;
+  background-color: #32b38a4d;
+  color: rgb(42, 30, 30);
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
-.search-result-card:hover .card-content {
+.search-result-card:hover .button-container {
   opacity: 1;
 }
 </style>

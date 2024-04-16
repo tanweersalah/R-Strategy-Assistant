@@ -6,7 +6,7 @@
           <img
             alt="R Strategy logo"
             class="app-logo"
-            src="@/assets/logo-h.jpg"
+            src="@/assets/n-logo-h.png"
           />
         </router-link>
       </div>

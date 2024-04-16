@@ -11,7 +11,8 @@
     />
 
     <div class="tab-container">
-      <button
+      <div
+        class="button-container"
         v-for="(button, index) in buttons"
         :key="index"
         :class="{ active: activeButton === index }"
@@ -19,7 +20,7 @@
       >
         <i :class="button.icon"></i>
         <span>{{ button.text }}</span>
-      </button>
+      </div>
     </div>
     <div class="component-container">
       <component :is="activeComponent"></component>
@@ -54,25 +55,25 @@ export default {
       buttons: [
         {
           text: "Vehicle Details",
-          icon: "fa fa-user",
+          icon: "fa fa-info-circle",
           component: VehicleDetails,
         },
         {
           text: "Data Provisioning of Components and Materials",
-          icon: "fa fa-heart",
+          icon: "fa fa-database",
           component: TechnicalDetails,
         },
         {
           text: "Technical Assessment",
-          icon: "fa fa-star",
+          icon: "fa fa-cogs",
           component: VehicleDetails,
         },
         {
           text: "Environmental Assessment",
-          icon: "fa fa-envelope",
+          icon: "fa fa-globe",
           component: VehicleDetails,
         },
-        { text: "Feedback", icon: "fa fa-cog", component: VehicleDetails },
+        { text: "Feedback", icon: "fa fa-comments", component: VehicleDetails },
       ],
       cars: {
         imageUrl:
@@ -97,9 +98,10 @@ export default {
 
 <style scoped>
 .container {
-  padding: 20px;
+  padding: 0px;
 }
 .back-container {
+  margin: 10px 20px 10px 20px;
   display: flex;
   justify-content: start;
 
@@ -113,41 +115,55 @@ export default {
   margin-left: 10px;
   font-size: 12px;
 }
-
+.search-card {
+  margin: 10px 20px 10px 20px;
+}
 .tab-container {
-  padding: 5px;
-  display: flex;
-  justify-content: space-between;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 
-  gap: 10px;
+  padding: 15px 30px 15px 30px;
+  display: flex;
+  justify-content: center;
+
+  gap: 20px;
 
   margin-bottom: 10px;
 }
 
-.tab-container button {
-  padding: 2px;
+.tab-container .button-container {
+  display: flex;
+  justify-content: space-around;
+
+  align-items: center;
+  text-align: center;
+  padding: 8px 10px 8px 10px;
+  margin: 0px 0px 0px 0px;
   font-size: 10px;
+
   border-radius: 10px;
   cursor: pointer;
   border: 1px solid #ccc;
   background-color: rgb(251, 252, 253);
   color: #000000;
 }
-
-.tab-container button:hover {
-  background-color: #00b3184d;
+.button-container i {
+  font-size: 18px;
 }
-
-.tab-container button.active {
+.tab-container .button-container:hover {
   background-color: #0057b370;
 }
 
-.tab-container button i {
+.tab-container .button-container.active {
+  background-color: #00b3184d;
+}
+
+.tab-container .button-container i {
   margin-right: 5px;
 }
 
 .component-container {
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .button-container button span {

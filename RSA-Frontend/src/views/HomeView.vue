@@ -14,7 +14,7 @@ import Searchbar from "../components/Searchbar.vue";
         <img
           alt="R Strategy logo"
           class="r-strategy-logo"
-          src="@/assets/logo-v.jpg"
+          src="@/assets/n-logo-v.png"
         />
         <Searchbar class="search-bar" />
         <div class="help">
