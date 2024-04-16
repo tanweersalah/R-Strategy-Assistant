@@ -10,21 +10,20 @@ import TheFooter from "./components/TheFooter.vue";
 
     <div class="router-view"><RouterView /></div>
 
-    <TheFooter class="header-footer" />
+    <TheFooter class="header-footer" id="footer" />
   </div>
 </template>
 
 <style scoped>
 .app-container {
-  min-height: 100vh;
-  min-width: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
 }
 
 .router-view {
-  height: 1px;
-  flex-grow: 1;
+  flex: 1 0 auto;
   position: relative;
 }
 
