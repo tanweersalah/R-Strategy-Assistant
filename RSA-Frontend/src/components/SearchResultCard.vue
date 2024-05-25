@@ -10,24 +10,24 @@
     <div class="details-container">
       <div class="detail-row">
         <div class="detail-column">
-          <div class="detail-label">KBA Number</div>
+          <div class="detail-label">Vehicle Brand</div>
           <div class="detail-value">{{ detailsData.kbaNumber }}</div>
         </div>
         <div class="detail-column">
-          <div class="detail-label">Vehicle Brand</div>
+          <div class="detail-label">Vehicle Model</div>
           <div class="detail-value">{{ detailsData.vehicleBrand }}</div>
         </div>
 
         <div class="detail-column">
-          <div class="detail-label">Fuel Type</div>
+          <div class="detail-label">Production Period</div>
           <div class="detail-value">{{ detailsData.fuelType }}</div>
         </div>
         <div class="detail-column">
-          <div class="detail-label">First Registration</div>
+          <div class="detail-label">Fuel Type</div>
           <div class="detail-value">{{ detailsData.firstRegistration }}</div>
         </div>
         <div class="detail-column">
-          <div class="detail-label">Certificate of Registration</div>
+          <div class="detail-label">KBA Number</div>
           <div class="detail-value">
             {{ detailsData.certificateOfRegistration }}
           </div>
@@ -35,16 +35,16 @@
       </div>
       <div class="detail-row">
         <div class="detail-column">
-          <div class="detail-label">Internal Reference</div>
+          <div class="detail-label">Catena-X ID</div>
           <div class="detail-value">{{ detailsData.internalReference }}</div>
         </div>
         <div class="detail-column">
-          <div class="detail-label">Vehicle Model</div>
+          <div class="detail-label">VIN</div>
           <div class="detail-value">{{ detailsData.vehicleModel }}</div>
         </div>
 
         <div class="detail-column">
-          <div class="detail-label">VIN</div>
+          <div class="detail-label">First Registration</div>
           <div class="detail-value">{{ detailsData.vin }}</div>
         </div>
         <div class="detail-column">
@@ -52,7 +52,11 @@
           <div class="detail-value">{{ detailsData.mileage }}</div>
         </div>
         <div class="detail-column">
-          <div class="detail-label">Damage</div>
+          <div class="detail-label">Certificate of Decommisioning</div>
+          <div class="detail-value">{{ detailsData.damage }}</div>
+        </div>
+        <div class="detail-column">
+          <div class="detail-label">Certificate of Decommisioning</div>
           <div class="detail-value">{{ detailsData.damage }}</div>
         </div>
       </div>
@@ -112,8 +116,11 @@ export default {
 
 .details-container {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  
   padding: 2px;
   justify-content: space-around;
 }
@@ -123,22 +130,24 @@ export default {
 }
 
 .detail-column {
-  flex: 1;
+  flex: 1 1 50%;
+  padding: 5px;
 }
 
 .detail-label {
-  color: #ff0000; /* Blue color for labels */
+  color: #000; /* Blue color for labels */
   font-size: 10px;
+  font-weight: bold;
 }
 
 .detail-value {
-  color: #221f52;
+  color: #767D93;
   font-size: 10px;
 }
 
 .button-container {
   width: 10%;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 }

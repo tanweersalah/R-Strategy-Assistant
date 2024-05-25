@@ -5,26 +5,32 @@
       <Searchbar class="search-bar" />
     </div>
     <div class="search-card-container">
-      <SearchResultCard
+      <!-- <SearchResultCard
         class="search-card"
         v-for="(car, index) in cars"
         :key="index"
         :image-url="car.imageUrl"
         :detailsData="car.detailsData"
         :viewDetailsButton="true"
-      />
+      /> -->
+
+      <GridLayoutTest class="grid_card" />
     </div>
+
+    
   </div>
 </template>
 
 <script>
 import Searchbar from "../components/Searchbar.vue";
 import SearchResultCard from "../components/SearchResultCard.vue";
+import GridLayoutTest from '../components/GridLayoutTest.vue';
 
 export default {
   components: {
     SearchResultCard,
     Searchbar,
+    GridLayoutTest
   },
   data() {
     return {
@@ -52,6 +58,10 @@ export default {
 </script>
 
 <style scoped>
+
+.grid_card{
+  width: 100%;
+}
 .container {
   display: flex;
   flex-direction: column;
