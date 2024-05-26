@@ -47,7 +47,7 @@ import Searchbar from "../components/Searchbar.vue";
   border: 1px solid rgba(0, 0, 0, 0.348);
   border-radius: 20px;
   box-shadow: 1px 0px 5px rgb(195, 192, 192);
-  width: 90%;
+
   height: 70%;
   overflow: hidden;
 }

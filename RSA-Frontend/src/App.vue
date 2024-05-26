@@ -6,11 +6,13 @@ import TheFooter from "./components/TheFooter.vue";
 
 <template>
   <div class="app-container">
-    <TheHeader class="header-footer" />
+    <div class="header"><TheHeader /></div>
 
     <div class="router-view"><RouterView /></div>
 
-    <TheFooter class="header-footer" id="footer" />
+    <div class="footer">
+      <TheFooter id="footer" />
+    </div>
   </div>
 </template>
 
@@ -18,16 +20,32 @@ import TheFooter from "./components/TheFooter.vue";
 .app-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   min-height: 100vh;
-  min-width: 100%;
+  width: 100vw;
 }
 
 .router-view {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   flex: 1 0 auto;
   position: relative;
 }
 
-.header-footer {
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  box-shadow: 0 2px 4px rgba(2, 2, 2, 0.2);
+}
+
+.footer {
+  background-color: #f3fcf0;
+  width: 100%;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
 }
 </style>

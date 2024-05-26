@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer-content">
+  <footer class="container footer-content">
     <div class="links">
       <div><router-link to="/documentation/?path=docs">Help</router-link></div>
       <div><router-link to="/contact">Contact</router-link></div>
@@ -32,8 +32,6 @@ a:hover {
 .footer-content {
   bottom: 0;
 
-  width: 100%;
-  background-color: #f3fcf0;
   height: 2.5rem;
   display: flex;
   justify-content: center;

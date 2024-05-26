@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="back-container">
+  <div class="main-container">
+    <div class="container back-container">
       <p>⬅ Back to Search</p>
     </div>
     <SearchResultCard
@@ -9,8 +9,8 @@
       :detailsData="cars.detailsData"
       :viewDetailsButton="false"
     />
-
-    <div class="tab-container">
+    <hr />
+    <div class="container tab-container">
       <div
         class="button-container"
         v-for="(button, index) in buttons"
@@ -22,7 +22,8 @@
         <span>{{ button.text }}</span>
       </div>
     </div>
-    <div class="component-container">
+    <hr />
+    <div class="container component-container">
       <component :is="activeComponent"></component>
     </div>
   </div>
@@ -97,8 +98,8 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  padding: 0px;
+hr {
+  width: 100%;
 }
 .back-container {
   margin: 10px 20px 10px 20px;
@@ -115,14 +116,14 @@ export default {
   margin-left: 10px;
   font-size: 12px;
 }
-.search-card {
-  margin: 10px 20px 10px 20px;
+.main-container {
+  width: 100vw;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 .tab-container {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-
-  padding: 15px 30px 15px 30px;
+  padding: 15px 30px 10px 30px;
   display: flex;
   justify-content: center;
 

@@ -1,70 +1,107 @@
 <template>
-  <div
-    class="search-result-card"
-    @mouseover="isHovered = true"
-    @mouseleave="isHovered = false"
-  >
-    <div class="image-container">
-      <img :src="imageUrl" alt="Image" class="thumbnail" />
-    </div>
-    <div class="details-container">
-      <div class="detail-row">
-        <div class="detail-column">
-          <div class="detail-label">Vehicle Brand</div>
-          <div class="detail-value">{{ detailsData.kbaNumber }}</div>
+  <div>
+    <div class="container">
+      <div class="item image-container">
+        <img :src="imageUrl" alt="Image" class="thumbnail" />
+      </div>
+      <div class="sub_heading heading_1">Product Specific Data</div>
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Vehicle Brand</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
         </div>
-        <div class="detail-column">
-          <div class="detail-label">Vehicle Model</div>
-          <div class="detail-value">{{ detailsData.vehicleBrand }}</div>
-        </div>
+        <div class="value-sub-grid">{{ detailsData.vehicleBrand }}</div>
+      </div>
 
-        <div class="detail-column">
-          <div class="detail-label">Production Period</div>
-          <div class="detail-value">{{ detailsData.fuelType }}</div>
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Vehicle Model</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
         </div>
-        <div class="detail-column">
-          <div class="detail-label">Fuel Type</div>
-          <div class="detail-value">{{ detailsData.firstRegistration }}</div>
+        <div class="value-sub-grid">{{ detailsData.vehicleModel }}</div>
+      </div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Production Period</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
         </div>
-        <div class="detail-column">
-          <div class="detail-label">KBA Number</div>
-          <div class="detail-value">
-            {{ detailsData.certificateOfRegistration }}
-          </div>
+        <div class="value-sub-grid">{{ detailsData.productionPeriod }}</div>
+      </div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Fuel Type</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">{{ detailsData.fuelType }}</div>
+      </div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">KBA Number</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">{{ detailsData.kbaNumber }}</div>
+      </div>
+      <div></div>
+
+      <hr class="border-line" />
+      <div class="detail-button">
+        <button v-if="viewDetailsButton" @click="redirectToDetails">
+          View Details
+        </button>
+      </div>
+      <div class="sub_heading heading_2">Instance Specific Data</div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Catena X - ID</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">{{ detailsData.catenaxID }}​</div>
+      </div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">VIN</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">{{ detailsData.vin }}</div>
+      </div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">First Registration</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">{{ detailsData.firstRegistration }}</div>
+      </div>
+
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Certificate of Decomisioning</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">
+          {{ detailsData.certificateOfDecomisioning }}
         </div>
       </div>
-      <div class="detail-row">
-        <div class="detail-column">
-          <div class="detail-label">Catena-X ID</div>
-          <div class="detail-value">{{ detailsData.internalReference }}</div>
-        </div>
-        <div class="detail-column">
-          <div class="detail-label">VIN</div>
-          <div class="detail-value">{{ detailsData.vehicleModel }}</div>
-        </div>
 
-        <div class="detail-column">
-          <div class="detail-label">First Registration</div>
-          <div class="detail-value">{{ detailsData.vin }}</div>
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Mileage</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
         </div>
-        <div class="detail-column">
-          <div class="detail-label">Mileage</div>
-          <div class="detail-value">{{ detailsData.mileage }}</div>
-        </div>
-        <div class="detail-column">
-          <div class="detail-label">Certificate of Decommisioning</div>
-          <div class="detail-value">{{ detailsData.damage }}</div>
-        </div>
-        <div class="detail-column">
-          <div class="detail-label">Certificate of Decommisioning</div>
-          <div class="detail-value">{{ detailsData.damage }}</div>
-        </div>
+        <div class="value-sub-grid">{{ detailsData.mileage }}</div>
       </div>
-    </div>
-    <div class="button-container" v-if="viewDetailsButton" v-show="isHovered">
-      <button class="view-details-button" @click="redirectToDetails">
-        View Details
-      </button>
+      <div class="info-sub-grid">
+        <div class="key-sub-grid">Damage</div>
+        <div class="source-info-sub-grid">
+          <img src="\src\assets\catena-logo.jpg" alt="" />
+        </div>
+        <div class="value-sub-grid">{{ detailsData.damage }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -89,104 +126,92 @@ export default {
 </script>
 
 <style scoped>
-.search-result-card {
-  display: flex;
-
-  max-height: 200px;
+.container {
+  border-radius: 15px;
+  font-size: 1em;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 10px;
-  align-items: center;
-  position: relative; /* Added */
-}
-
-.thumbnail {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.image-container {
-  padding: 10px;
-  width: 25%;
-  border-radius: 5px;
-}
-
-.details-container {
-  flex: 1;
+  margin: 10px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 20px;
-  
-  padding: 2px;
-  justify-content: space-around;
-}
-
-.detail-row {
-  display: flex;
-}
-
-.detail-column {
-  flex: 1 1 50%;
+  width: 90vw;
+  height: 200px;
+  grid-template-rows: 1fr 2fr 1fr 1fr 2fr;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 3px 3px;
   padding: 5px;
 }
 
-.detail-label {
-  color: #000; /* Blue color for labels */
-  font-size: 10px;
+.info-sub-grid {
+  font-size: 0.6rem;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+.source-info-sub-grid {
+  justify-items: start;
+  grid-area: 1/2/1/2;
+}
+.source-info-sub-grid img {
+  margin-top: 1px;
+  width: 10vw;
+  height: auto;
+  min-width: 5px;
+  max-width: 12px;
+}
+
+.key-sub-grid {
   font-weight: bold;
 }
 
-.detail-value {
-  color: #767D93;
-  font-size: 10px;
+.value-sub-grid {
+  color: #767d93;
 }
-
-.button-container {
-  width: 10%;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-
-.action-button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 20px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-.button-container {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.099);
-  backdrop-filter: blur(10px);
+.image-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out 3s;
-  transition-delay: 1s;
+  grid-area: 1 / 1 / -1 / 1;
 }
 
-.view-details-button {
-  padding: 8px 16px;
-  background-color: #32b38a4d;
-  color: rgb(42, 30, 30);
-  border: none;
+.image-container img {
+  width: auto;
+  height: auto;
+  min-width: 80px;
+  max-width: 120px;
+
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.sub_heading {
+  font-size: 0.5rem;
+}
+
+.heading_1 {
+  grid-area: 1/2/1/-1;
+}
+
+.heading_2 {
+  grid-area: 4/2/4/-1;
+}
+
+.border-line {
+  align-self: center;
+  color: #ccc;
+  height: 0.1px;
+  width: 100%;
+  grid-area: 3/2/3/-2;
+}
+
+.detail-button {
+  grid-area: 3/7/3/7;
+}
+
+.detail-button button {
+  width: 100%;
+  height: 110%;
+  border: 1px solid #ccc;
+  background-color: #81bb3933;
   border-radius: 20px;
-  cursor: pointer;
-}
 
-.search-result-card:hover .button-container {
-  opacity: 1;
+  font-size: 1vw;
 }
 </style>

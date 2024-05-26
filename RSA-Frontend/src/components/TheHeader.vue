@@ -24,17 +24,10 @@
 
 <style scoped>
 .container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   height: 55px;
   padding: 5px;
-  box-shadow: 0 2px 4px rgba(2, 2, 2, 0.2);
-}
-
-.logo {
-  width: 20%;
-  height: 50px;
 }
 .app-logo {
   width: auto;
@@ -43,19 +36,18 @@
   border: 1px solid #a8a5a5;
   pointer-events: none;
 }
+.logo {
+  height: 50px;
+  justify-self: start;
+}
 
 .message {
-  width: 50%;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-self: center;
 }
 .profile_menu {
-  width: 20%;
   height: 100%;
-  display: flex;
-  justify-content: end;
+  justify-self: end;
   overflow: hidden;
 }
 
