@@ -6,41 +6,52 @@
       </div>
       <div class="sub_heading heading_1">Product Specific Data</div>
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Vehicle Brand</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Vehicle Brand</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vehicleBrand }}</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Vehicle Model</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Vehicle Model</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vehicleModel }}</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Production Period</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Production Period</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
+
         <div class="value-sub-grid">{{ detailsData.productionPeriod }}</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Fuel Type</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Fuel Type</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.fuelType }}</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">KBA Number</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">KBA Number</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.kbaNumber }}</div>
       </div>
@@ -55,33 +66,41 @@
       <div class="sub_heading heading_2">Instance Specific Data</div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Catena X - ID</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Catena X - ID</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.catenaxID }}​</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">VIN</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">VIN</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vin }}</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">First Registration</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">First Registration</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.firstRegistration }}</div>
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Certificate of Decomisioning</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Certificate of Decomisioning</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">
           {{ detailsData.certificateOfDecomisioning }}
@@ -89,16 +108,20 @@
       </div>
 
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Mileage</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Mileage</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.mileage }}</div>
       </div>
       <div class="info-sub-grid">
-        <div class="key-sub-grid">Damage</div>
-        <div class="source-info-sub-grid">
-          <img src="\src\assets\catena-logo.jpg" alt="" />
+        <div class="key-sub-grid">
+          <div class="key-sub-grid-text">Damage</div>
+          <div class="source-info-sub-grid">
+            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+          </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.damage }}</div>
       </div>
@@ -127,24 +150,27 @@ export default {
 
 <style scoped>
 .container {
-  border-radius: 15px;
-  font-size: 1em;
+  border-radius: 5px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   margin: 10px;
   display: grid;
   width: 90vw;
-  height: 200px;
-  grid-template-rows: 1fr 2fr 1fr 1fr 2fr;
+
+  height: fit-content;
+
+  grid-template-rows: 0.7fr 2fr 1fr 0.7fr 2fr;
   grid-template-columns: repeat(7, 1fr);
-  grid-gap: 3px 3px;
+  grid-gap: 1px 1px;
   padding: 5px;
+  background-color: #f7f7f7;
 }
 
 .info-sub-grid {
   font-size: 0.6rem;
   display: grid;
-  grid-template-columns: 4fr 1fr;
-  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1px 1px;
+  grid-template-rows: 10px span;
 }
 .source-info-sub-grid {
   justify-items: start;
@@ -159,10 +185,21 @@ export default {
 }
 
 .key-sub-grid {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
   font-weight: bold;
 }
 
+.key-sub-grid-text {
+  font-size: 0.65rem;
+  font-weight: bold;
+  width: fit-content;
+}
+
 .value-sub-grid {
+  margin-right: 10px;
+  font-size: 0.7rem;
   color: #767d93;
 }
 .image-container {
@@ -176,13 +213,13 @@ export default {
   height: auto;
   min-width: 80px;
   max-width: 120px;
-
+  max-height: 200px;
   margin: 5px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .sub_heading {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 
 .heading_1 {

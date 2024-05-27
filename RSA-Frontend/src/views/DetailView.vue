@@ -33,12 +33,15 @@
 import SearchResultCard from "../components/SearchResultCard.vue";
 import VehicleDetails from "../components/VehicleDetails.vue";
 import TechnicalDetails from "../components/TechnicalDetails.vue";
+import DataProvisioning from "../components/DataProvisioning.vue";
+import DigitalTwinUpdate from "../components/DigitalTwinUpdate.vue";
 
 export default {
   components: {
     SearchResultCard,
     VehicleDetails,
     TechnicalDetails,
+    DigitalTwinUpdate,
   },
   computed: {
     activeComponent() {
@@ -62,17 +65,22 @@ export default {
         {
           text: "Data Provisioning of Components and Materials",
           icon: "fa fa-database",
-          component: TechnicalDetails,
+          component: DataProvisioning,
         },
         {
           text: "Technical Assessment",
           icon: "fa fa-cogs",
-          component: VehicleDetails,
+          component: TechnicalDetails,
         },
         {
           text: "Environmental Assessment",
           icon: "fa fa-globe",
           component: VehicleDetails,
+        },
+        {
+          text: "Digital Twin Update",
+          icon: "fa fa-globe",
+          component: DigitalTwinUpdate,
         },
         { text: "Feedback", icon: "fa fa-comments", component: VehicleDetails },
       ],
@@ -80,16 +88,17 @@ export default {
         imageUrl:
           "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
         detailsData: {
-          kbaNumber: "OBASX12312AS",
+          kbaNumber: "0603ADK",
           vehicleBrand: "Volkswagen",
           fuelType: "Diesel",
-          firstRegistration: "12.12.2020",
-          certificateOfRegistration: "OBASX12312AS",
-          internalReference: "UP1273S23",
+          firstRegistration: "12.12.2005",
+          certificateOfDecomisioning: "Issued",
           vehicleModel: "GOLF",
-          vin: "124451SX12AS",
+          vin: "WVWZZZ1KZ6W098546",
           mileage: "123478",
           damage: "Accident Vehicle",
+          catenaxID: "580d3adf-1981-44a0-​a214-13d6ceed9379​",
+          productionPeriod: "10/2003 - 2008",
         },
       },
     };
@@ -108,7 +117,6 @@ hr {
 
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 .back-container p {
@@ -142,10 +150,10 @@ hr {
   margin: 0px 0px 0px 0px;
   font-size: 10px;
 
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
-  border: 1px solid #ccc;
-  background-color: rgb(251, 252, 253);
+  border: 1px solid #cccccc21;
+  background-color: #d9d9d97f;
   color: #000000;
 }
 .button-container i {

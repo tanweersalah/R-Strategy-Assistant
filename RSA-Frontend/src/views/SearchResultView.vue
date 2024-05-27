@@ -34,16 +34,17 @@ export default {
           imageUrl:
             "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
           detailsData: {
-            kbaNumber: "OBASX12312AS",
+            kbaNumber: "0603ADK",
             vehicleBrand: "Volkswagen",
             fuelType: "Diesel",
-            firstRegistration: "12.12.2020",
-            certificateOfRegistration: "OBASX12312AS",
-            internalReference: "UP1273S23",
+            firstRegistration: "12.12.2005",
+            certificateOfDecomisioning: "Issued",
             vehicleModel: "GOLF",
-            vin: "124451SX12AS",
+            vin: "WVWZZZ1KZ6W098546",
             mileage: "123478",
             damage: "Accident Vehicle",
+            catenaxID: "580d3adf-1981-44a0-​a214-13d6ceed9379​",
+            productionPeriod: "10/2003 - 2008",
           },
         },
       ],
@@ -88,10 +89,5 @@ hr {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-}
-
-.search-card {
-  width: 90%;
-  height: 40%;
 }
 </style>

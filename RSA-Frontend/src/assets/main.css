@@ -17,6 +17,41 @@ a,
   width: 100vw;
 }
 
+.default-input {
+  background-color: whitesmoke;
+  color: #666666;
+  border-radius: 8px;
+  border: 0px solid #ccc;
+  height: 2.2rem;
+  box-shadow: 0px 0px 10px #ccc;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.default-label {
+  color: #1e1e1e;
+  font-size: 0.75rem;
+  padding-left: 10px;
+}
+
+.default-btn {
+  color: #4836a9;
+  border-radius: 8px;
+  border: 1px solid #4836a9;
+  height: 2.2rem;
+  box-shadow: 0px 0px 10px #ccc;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.default-btn:disabled,
+.default-btn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 /* 2xl */
 @media (max-width: 1536px) {
   h2 {

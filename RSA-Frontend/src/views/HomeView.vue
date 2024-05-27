@@ -3,28 +3,24 @@ import Searchbar from "../components/Searchbar.vue";
 </script>
 
 <template>
-  <div class="main-container">
-    <div class="container">
-      <div class="info-box">
-        <div class="overlay">
-          <h1>Text Overlay</h1>
-        </div>
-      </div>
-      <div class="search-box">
-        <img
-          alt="R Strategy logo"
-          class="r-strategy-logo"
-          src="@/assets/n-logo-v.png"
-        />
-        <Searchbar class="search-bar" />
-        <div class="help">
-          Need help? Read our Get
-          <a
-            class="advanced-search-link"
-            href="https://portal.int.demo.catena-x.net/documentation/"
-            >Started Guide</a
-          >
-        </div>
+  <div class="main-container container">
+    <div class="info-box">
+      <div class="overlay"><h1>Text Overlay</h1></div>
+    </div>
+    <div class="search-box">
+      <img
+        alt="R Strategy logo"
+        class="r-strategy-logo"
+        src="@/assets/n-logo-v.png"
+      />
+      <Searchbar class="search-bar" />
+      <div class="help">
+        Need help? Read our Get
+        <a
+          class="advanced-search-link"
+          href="https://portal.int.demo.catena-x.net/documentation/"
+          >Started Guide</a
+        >
       </div>
     </div>
   </div>
@@ -32,15 +28,14 @@ import Searchbar from "../components/Searchbar.vue";
 
 <style scoped>
 .main-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: rgba(173, 181, 172, 0.056);
   justify-content: center;
   align-items: center;
-  height: 100%;
+
   width: 100%;
-}
-.container {
-  display: flex;
+
   background-color: rgb(255, 255, 255);
   justify-content: center;
   align-items: center;
@@ -50,30 +45,27 @@ import Searchbar from "../components/Searchbar.vue";
 
   height: 70%;
   overflow: hidden;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
+
 .info-box {
-  width: 50%;
+  width: 100%;
   height: 100%;
 
   background-image: url("https://transmetal.co.uk/wp-content/uploads/2016/10/junkyard-1501245_1920.jpg");
-  background-size: cover;
-  background-position: center;
+  background-size: 100%;
 }
 
-.overlay {
+.overly {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
-  backdrop-filter: blur(2px); /* Blur effect */
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white; /* Text color */
+  background-color: rgb(21, 51, 76);
 }
 
 .search-box {
-  width: 50%;
+  width: 100%;
   height: 100%;
   border: 1px black;
   background-color: white;
