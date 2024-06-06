@@ -1,12 +1,7 @@
 <template>
-  <div class="container">
-    <div class="container-heading">
-      <h3>Available Images</h3>
-    </div>
-    <div class="image-grid">
-      <div v-for="(image, index) in images" :key="index" class="image-item">
-        <img :src="image" alt="Image" class="image" />
-      </div>
+  <div class="image-grid">
+    <div v-for="(image, index) in images" :key="index" class="image-item">
+      <img :src="image" alt="Image" class="image" />
     </div>
   </div>
 </template>
@@ -28,24 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 900px;
-}
-
-.container-heading {
-  width: 100%;
-  border-bottom: 1px solid #ccc;
-}
-.container-heading h3 {
-  font-weight: bold;
-  font-size: 12px;
-  padding: 5px 2px 5px 15px;
-}
 .image-grid {
-  padding: 10px;
   display: grid;
 
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

@@ -3,33 +3,28 @@
     <base-container title="End Of Life">
       <div class="end-of-life-decision">
         <div>
-          <label class="default-label" for="functional-quality"
-            >Functional Check</label
+          <label class="default-label" for="component-selector"
+            >Select Component</label
           >
-          <select class="default-input" id="functional-quality">
+          <select class="default-input" id="component-selector">
             <option value="" selected disabled class="placeholder">
               Select an option
             </option>
-            <option value="no recognisable defects">
-              No Recognisable Defects
-            </option>
-            <option value="Functional">Functional</option>
-            <option value="Not Functional">Not Functional</option>
+            <option value="engine">Engine</option>
           </select>
         </div>
         <div>
           <label class="default-label" for="functional-quality"
-            >Functional Check</label
+            >Select End of Life Decision</label
           >
           <select class="default-input" id="functional-quality">
             <option value="" selected disabled class="placeholder">
               Select an option
             </option>
-            <option value="no recognisable defects">
-              No Recognisable Defects
-            </option>
-            <option value="Functional">Functional</option>
-            <option value="Not Functional">Not Functional</option>
+            <option value="reuse">Reuse</option>
+            <option value="remanufacture">Remanufacture</option>
+            <option value="recycle">Recycle</option>
+            <option value="repair">Repair</option>
           </select>
         </div>
       </div>
@@ -44,3 +39,15 @@ export default {
   components: { BaseContainer },
 };
 </script>
+
+<style scoped>
+.end-of-life-decision {
+  display: flex;
+  gap: 20px;
+}
+
+.component-main-container {
+  display: flex;
+  justify-content: center;
+}
+</style>

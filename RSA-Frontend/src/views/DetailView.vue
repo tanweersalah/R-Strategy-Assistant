@@ -35,6 +35,7 @@ import VehicleDetails from "../components/VehicleDetails.vue";
 import TechnicalDetails from "../components/TechnicalDetails.vue";
 import DataProvisioning from "../components/DataProvisioning.vue";
 import DigitalTwinUpdate from "../components/DigitalTwinUpdate.vue";
+import Feedback from "../components/Feedback.vue";
 
 export default {
   components: {
@@ -82,7 +83,7 @@ export default {
           icon: "fa fa-globe",
           component: DigitalTwinUpdate,
         },
-        { text: "Feedback", icon: "fa fa-comments", component: VehicleDetails },
+        { text: "Feedback", icon: "fa fa-comments", component: Feedback },
       ],
       cars: {
         imageUrl:

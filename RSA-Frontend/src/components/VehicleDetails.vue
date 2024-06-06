@@ -1,17 +1,23 @@
 <template>
-  <div class="container">
-    <dynamic-table class="table" :data="tableData" />
-    <image-grid class="images" :imageUrls="imageUrls" />
+  <div class="component-main-container">
+    <base-container class="container" title="High Value Parts">
+      <dynamic-table class="table" :data="tableData" />
+    </base-container>
+    <base-container class="container" title="Available Images">
+      <image-grid class="images" :imageUrls="imageUrls" />
+    </base-container>
   </div>
 </template>
 
 <script>
-import DynamicTable from "./TabularComponent.vue"; // Assuming the file name is DynamicTable.vue
+import DynamicTable from "./TabularComponent.vue";
+import BaseContainer from "./BaseContainer.vue";
 import ImageGrid from "./ImageGrid.vue";
 export default {
   components: {
     DynamicTable,
     ImageGrid,
+    BaseContainer,
   },
   data() {
     return {
@@ -55,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.component-main-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
