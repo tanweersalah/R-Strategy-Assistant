@@ -1,116 +1,120 @@
 <template>
   <div class="component-main-container container">
     <BaseContainer class="base-container" title="Images">
-      <div class="images-container">
-        <img
-          src="/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131932.jpg"
-          alt=""
-        />
-      </div>
+      <template #content>
+        <div class="images-container">
+          <img
+            src="/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131932.jpg"
+            alt=""
+          />
+        </div>
+      </template>
     </BaseContainer>
     <BaseContainer class="base-container" title="Engine Information">
-      <div class="engine-info-container">
-        <div class="section-heading product">Product Specific Data</div>
+      <template #content>
+        <div class="engine-info-container">
+          <div class="section-heading product">Product Specific Data</div>
 
-        <div class="section-items">
-          <div class="item-key">Product Name</div>
+          <div class="section-items">
+            <div class="item-key">Product Name</div>
 
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
 
-          <div class="item-value">17900 Engine, 1,9 TDI 77kW</div>
+            <div class="item-value">17900 Engine, 1,9 TDI 77kW</div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">OE Number</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">BKG094975</div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">Weight (kg)</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">120</div>
+          </div>
+          <hr />
+
+          <div class="section-heading instance">Instance Specific Data</div>
+
+          <div class="section-items">
+            <div class="item-key">Catena-X ID</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">d60b99b0-f269-42f5- 94d0-64fe0946ed04​</div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">Serial Number</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">NO-57486863942​9552535768526​</div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">Year of Manufacturing</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">2005</div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">Mileage (km)</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">34213</div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">Life cycle phase of component</div>
+
+            <img
+              class="info-icon"
+              src="\src\assets\catena-logo.jpg"
+              alt="catena x info button"
+            />
+
+            <div class="item-value">1st Life</div>
+          </div>
         </div>
-
-        <div class="section-items">
-          <div class="item-key">OE Number</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">BKG094975</div>
-        </div>
-
-        <div class="section-items">
-          <div class="item-key">Weight (kg)</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">120</div>
-        </div>
-        <hr />
-
-        <div class="section-heading instance">Instance Specific Data</div>
-
-        <div class="section-items">
-          <div class="item-key">Catena-X ID</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">d60b99b0-f269-42f5- 94d0-64fe0946ed04​</div>
-        </div>
-
-        <div class="section-items">
-          <div class="item-key">Serial Number</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">NO-57486863942​9552535768526​</div>
-        </div>
-
-        <div class="section-items">
-          <div class="item-key">Year of Manufacturing</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">2005</div>
-        </div>
-
-        <div class="section-items">
-          <div class="item-key">Mileage (km)</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">34213</div>
-        </div>
-
-        <div class="section-items">
-          <div class="item-key">Life cycle phase of component</div>
-
-          <img
-            class="info-icon"
-            src="\src\assets\catena-logo.jpg"
-            alt="catena x info button"
-          />
-
-          <div class="item-value">1st Life</div>
-        </div>
-      </div>
+      </template>
     </BaseContainer>
   </div>
 </template>

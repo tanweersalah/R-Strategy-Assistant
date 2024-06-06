@@ -1,15 +1,12 @@
 <template>
   <header>
-    <div class="container">
-      <div class="logo">
-        <router-link to="/">
-          <img
-            alt="R Strategy logo"
-            class="app-logo"
-            src="@/assets/n-logo-h.png"
-          />
-        </router-link>
-      </div>
+    <div class="container header-container">
+      <router-link to="/" class="logo-link">
+        <div class="app-logo">
+          <img alt="R Strategy logo" src="@/assets/n-logo-h.png" />
+        </div>
+      </router-link>
+
       <div class="message"></div>
       <div class="profile_menu">
         <img
@@ -23,38 +20,40 @@
 </template>
 
 <style scoped>
-.container {
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  height: 55px;
-  padding: 5px;
-}
-.app-logo {
+.app-logo img {
   width: auto;
-  height: 90%;
+  height: 50px;
   border-radius: 12px;
   border: 1px solid #a8a5a5;
   pointer-events: none;
 }
-.logo {
+.app-logo,
+.logo-link {
   height: 50px;
-  justify-self: start;
+  width: max-content;
 }
 
 .message {
-  height: 50px;
   justify-self: center;
 }
+
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 5px;
+  height: 65px;
+}
+
 .profile_menu {
-  height: 100%;
+  height: auto;
   justify-self: end;
+  align-content: center;
   overflow: hidden;
 }
 
 .profile_menu img {
   width: 50px;
-  height: 100%;
-  border-radius: 12px;
+  height: 50px;
   border: 1px solid #ccc;
   display: block;
   border-radius: 50%;

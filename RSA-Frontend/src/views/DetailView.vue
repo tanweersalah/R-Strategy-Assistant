@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <div class="container back-container">
+    <div class="container back-container" @click="redirectToSearch">
       <p>⬅ Back to Search</p>
     </div>
     <SearchResultCard
@@ -52,6 +52,10 @@ export default {
   methods: {
     setActiveButton(index) {
       this.activeButton = index;
+    },
+
+    redirectToSearch() {
+      this.$router.push("/search");
     },
   },
   data() {
@@ -115,7 +119,7 @@ hr {
   margin: 10px 20px 10px 20px;
   display: flex;
   justify-content: start;
-
+  background-color: #f7f7f7;
   border: 1px solid #ccc;
   border-radius: 5px;
 }

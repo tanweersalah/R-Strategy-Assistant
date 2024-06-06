@@ -38,7 +38,7 @@ export default {
 .custom-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 11px; /* Set font size */
+  font-size: 0.8rem;
 }
 
 th,

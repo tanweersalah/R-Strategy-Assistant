@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container card-container">
       <div class="item image-container">
         <img :src="imageUrl" alt="Image" class="thumbnail" />
       </div>
@@ -9,7 +9,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Vehicle Brand</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vehicleBrand }}</div>
@@ -19,7 +19,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Vehicle Model</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vehicleModel }}</div>
@@ -29,7 +29,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Production Period</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
 
@@ -40,7 +40,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Fuel Type</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.fuelType }}</div>
@@ -50,7 +50,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">KBA Number</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.kbaNumber }}</div>
@@ -69,7 +69,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Catena X - ID</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.catenaxID }}​</div>
@@ -79,7 +79,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">VIN</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vin }}</div>
@@ -89,7 +89,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">First Registration</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.firstRegistration }}</div>
@@ -99,7 +99,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Certificate of Decomisioning</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">
@@ -111,7 +111,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Mileage</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.mileage }}</div>
@@ -120,7 +120,12 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Damage</div>
           <div class="source-info-sub-grid">
-            <img src="\src\assets\catena-logo.jpg" alt="catena x info button" />
+            <cx-tooltip imgSrc="/src/assets/catena-logo.jpg">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
+                quod?
+              </p>
+            </cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.damage }}</div>
@@ -128,8 +133,11 @@
     </div>
   </div>
 </template>
+
 <script>
+import CxTooltip from "./CxTooltip.vue";
 export default {
+  components: { CxTooltip },
   props: {
     imageUrl: String,
     detailsData: Object,
@@ -149,13 +157,12 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.card-container {
   border-radius: 5px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  margin: 10px;
+  margin: 5px 0px 15px 0px;
   display: grid;
-  width: 90vw;
 
   height: fit-content;
 

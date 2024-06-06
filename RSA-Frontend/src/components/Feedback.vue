@@ -1,7 +1,9 @@
 <template>
 <div class="component-main-container">
   <base-container title="Feedback" class="container ">
-  <div class="feedback-container">
+
+   <template #content>
+<div class="feedback-container">
 
    <div class="question-container" v-for="(question, key) in feedback.questions" :key=key>
     <div class="question">{{question}}</div>
@@ -9,6 +11,9 @@
    </div>
    <button class="send-feedback default-btn">Send Feedback</button>
    </div>
+      
+    </template>
+  
   </base-container>
   </div>
 </template>

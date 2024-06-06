@@ -1,10 +1,14 @@
 <template>
   <div class="component-main-container">
     <base-container class="container" title="High Value Parts">
-      <dynamic-table class="table" :data="tableData" />
+      <template #content>
+        <dynamic-table slot="content" class="table" :data="tableData" />
+      </template>
     </base-container>
     <base-container class="container" title="Available Images">
-      <image-grid class="images" :imageUrls="imageUrls" />
+      <template #content>
+        <image-grid class="images" :imageUrls="imageUrls"
+      /></template>
     </base-container>
   </div>
 </template>

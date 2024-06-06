@@ -2,9 +2,10 @@
   <div class="base-main-container">
     <div class="container-title">
       <h3>{{ title }}</h3>
+      <slot name="info"></slot>
     </div>
     <div class="container-content">
-      <slot></slot>
+      <slot name="content">Content</slot>
     </div>
   </div>
 </template>
@@ -35,12 +36,15 @@ export default {
   width: 100%;
   border-bottom: 1px solid #ccc;
   height: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 5px 15px;
 }
 
 .container-title h3 {
   font-weight: bold;
   font-size: 12px;
-  padding: 5px 10px 5px 15px;
+
   margin-bottom: 30px;
 }
 
