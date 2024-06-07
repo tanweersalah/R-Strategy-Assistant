@@ -5,7 +5,7 @@
         <dynamic-table slot="content" class="table" :data="tableData" />
       </template>
     </base-container>
-    <base-container class="container" title="Available Images">
+    <base-container class="images-container container" title="Available Images">
       <template #content>
         <image-grid class="images" :imageUrls="imageUrls"
       /></template>
@@ -76,9 +76,9 @@ export default {
 
 .table {
   width: 100%;
-  max-width: 900px;
 }
-.images {
-  width: 100%;
+.images-container {
+  width: 90vw;
+  max-width: 900px;
 }
 </style>

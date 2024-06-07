@@ -69,7 +69,6 @@ export default {
   visibility: hidden;
   width: 150px;
   max-width: 250px;
-  min-height: 2rem;
   padding: 8px;
   background-color: #fff;
   color: black;
@@ -92,7 +91,7 @@ export default {
 
 /* Dynamic positioning classes */
 .tooltip-left {
-  left: auto !important;
+  left: -65px !important;
   right: 0;
   transform: translateX(0);
 }

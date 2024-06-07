@@ -40,6 +40,9 @@
       class="quality-container base-container"
       title="Quality for possible R-Strategy"
     >
+      <template #info>
+        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+      </template>
       <template #content>
         <div class="content-grid">
           <div class="content-item">
@@ -120,6 +123,9 @@
       class="technical-feasibility-container base-container"
       title="Technical feasibility of R-Strategy"
     >
+      <template #info>
+        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+      </template>
       <template #content>
         <div class="button-container">
           <button class="default-btn" disabled>Reuse</button>

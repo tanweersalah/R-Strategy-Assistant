@@ -1,6 +1,10 @@
 <template>
   <div class="component-main-container container">
     <base-container title="End Of Life">
+      <template #info>
+        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+      </template>
+
       <template #content>
         <div class="end-of-life-decision">
           <div>
@@ -32,15 +36,24 @@
       </template>
     </base-container>
 
-    <div></div>
+    <base-container title="Additional Services">
+      <template #content>
+        <div class="content-container-additional">
+          <button class="default-btn">Dismantling Instructions</button>
+          <button class="default-btn">Create Reuse Certificate</button>
+          <button class="default-btn">Update Digital Twin</button>
+        </div>
+      </template>
+    </base-container>
   </div>
 </template>
 
 <script>
-import BaseContainer from "../components/BaseContainer.vue";
+import BaseContainer from "./BaseContainer.vue";
+import CxTooltip from "./CxTooltip.vue";
 
 export default {
-  components: { BaseContainer },
+  components: { BaseContainer, CxTooltip },
 };
 </script>
 
@@ -52,6 +65,15 @@ export default {
 
 .component-main-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.content-container-additional {
+  width: 90vw;
+  max-width: 900px;
+  display: flex;
+  gap: 20px;
 }
 </style>

@@ -35,6 +35,7 @@ import VehicleDetails from "../components/VehicleDetails.vue";
 import TechnicalDetails from "../components/TechnicalDetails.vue";
 import DataProvisioning from "../components/DataProvisioning.vue";
 import DigitalTwinUpdate from "../components/DigitalTwinUpdate.vue";
+import EnvironmentalAssessment from "../components/EnvironmentalAssessment.vue";
 import Feedback from "../components/Feedback.vue";
 
 export default {
@@ -80,7 +81,7 @@ export default {
         {
           text: "Environmental Assessment",
           icon: "fa fa-globe",
-          component: VehicleDetails,
+          component: EnvironmentalAssessment,
         },
         {
           text: "Digital Twin Update",
