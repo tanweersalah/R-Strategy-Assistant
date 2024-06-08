@@ -5,7 +5,7 @@ import Searchbar from "../components/Searchbar.vue";
 <template>
   <div class="main-container container">
     <div class="info-box">
-      <div class="overlay"><h1>Text Overlay</h1></div>
+      <div class="overlay"><h1>Text Overlay Changed</h1></div>
     </div>
     <div class="search-box">
       <img
