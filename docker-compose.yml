@@ -1,0 +1,38 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:15.4-alpine
+    container_name: postgres-ce
+    environment:
+      POSTGRES_DB: miw
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    networks:
+      - ce-net
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.1
+    env_file:
+      - ./keycloak/keycloak.properties
+    environment:
+      DB_SCHEMA: public
+    command:
+      - --verbose
+      - start-dev
+      - --import-realm
+    volumes:
+      - ./keycloak/ce-assistant.json:/opt/keycloak/data/import/ce_assistant_realm.json
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - ce-net
+  frontend:
+    image: tanweersalah/ce-frontend:0.0.2
+    ports:
+      - 5173:5173
+networks:
+  ce-net:
+    name: ce-net

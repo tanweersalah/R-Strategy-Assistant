@@ -64,8 +64,8 @@ export default class Authentication {
           } else {
             app.config.globalProperties.$authProperties.loginReachable = false;
           }
-          app.config.globalProperties.$authProperties.isAuthorized =
-            this.isAuthorized(this.keycloak.parsedToken);
+          app.config.globalProperties.$authProperties.isAuthorized = true;
+
           console.info("Token refreshed " + refreshed);
         } else {
           console.warn(

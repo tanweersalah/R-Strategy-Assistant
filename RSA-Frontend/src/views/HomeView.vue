@@ -1,7 +1,3 @@
-<script setup>
-import Searchbar from "../components/Searchbar.vue";
-</script>
-
 <template>
   <div class="main-container container">
     <div class="info-box">
@@ -25,6 +21,19 @@ import Searchbar from "../components/Searchbar.vue";
     </div>
   </div>
 </template>
+
+<script>
+import { inject } from "vue";
+import Searchbar from "../components/Searchbar.vue";
+
+export default {
+  data() {
+    return {
+      auth: inject("authentication"),
+    };
+  },
+};
+</script>
 
 <style scoped>
 .main-container {
