@@ -7,7 +7,7 @@
         </div>
       </router-link>
 
-      <div class="message"></div>
+      <div class="message"><button @click="logout">Logout</button></div>
       <div class="profile_menu">
         <img
           alt="Profile image"
@@ -18,6 +18,23 @@
     </div>
   </header>
 </template>
+
+<script>
+import { inject } from "vue";
+
+export default {
+  data() {
+    return {
+      auth: inject("authentication"),
+    };
+  },
+  methods: {
+    logout() {
+      this.auth.logout();
+    },
+  },
+};
+</script>
 
 <style scoped>
 .app-logo img {
