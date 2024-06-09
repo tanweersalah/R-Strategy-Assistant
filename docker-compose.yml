@@ -32,7 +32,7 @@ services:
   frontend:
     image: tanweersalah/ce-frontend:0.0.2
     ports:
-      - 5173:5173
+      - 80:5173
 networks:
   ce-net:
     name: ce-net

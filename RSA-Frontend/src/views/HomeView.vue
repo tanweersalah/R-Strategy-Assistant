@@ -27,6 +27,7 @@ import { inject } from "vue";
 import Searchbar from "../components/Searchbar.vue";
 
 export default {
+  components: { Searchbar },
   data() {
     return {
       auth: inject("authentication"),

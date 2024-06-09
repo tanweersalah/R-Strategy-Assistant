@@ -1,5 +1,5 @@
 const IDP_URL = "http://keycloak:8080/";
-const REDIRECT_URI = "http://localhost:5173/";
+const REDIRECT_URI = window.location.origin;
 const CLIENT_ID = "miw_public";
 const REALM = "ce_assistant";
 const ONLOAD = "login-required";
