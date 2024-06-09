@@ -1,7 +1,7 @@
 const IDP_URL = "http://keycloak:8080/";
 const REDIRECT_URI = "http://localhost:5173/";
 const CLIENT_ID = "miw_public";
-const REALM = "miw_test";
+const REALM = "ce_assistant";
 const ONLOAD = "login-required";
 
 let INIT_OPTIONS = {
