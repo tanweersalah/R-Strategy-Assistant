@@ -174,9 +174,9 @@ export default {
 }
 .section-items {
   display: grid;
-  grid-template-columns: 1fr 30px 1fr; /* Define consistent column sizes */
-  align-items: center; /* Center items vertically */
-  gap: 10px; /* Space between columns */
+  grid-template-columns: 1fr 30px 1fr; 
+  align-items: center; 
+  gap: 10px; 
 }
 .section-heading {
   font-weight: 600;
