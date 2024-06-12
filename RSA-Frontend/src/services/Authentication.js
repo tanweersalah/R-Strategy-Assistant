@@ -10,39 +10,46 @@ export default class Authentication {
   keycloakInit(app) {
     var authProperties = app.config.globalProperties.$authProperties;
 
-    this.keycloak
-      .init({ onLoad: INIT_OPTIONS.onLoad })
-      .then((auth) => {
-        if (!auth) {
-          window.location.reload();
-        } else {
-          // Check if the refresh token is valid and authenticated
-          if (this.keycloak.tokenParsed) {
-            authProperties.loginReachable = true;
+    if (!authProperties.authEnabled) {
+      authProperties.loginReachable = false;
+      authProperties.isAuthorized = false;
+      app.config.globalProperties.$authProperties = authProperties;
+      app.mount("#app");
+    } else {
+      this.keycloak
+        .init({ onLoad: INIT_OPTIONS.onLoad })
+        .then((auth) => {
+          if (!auth) {
+            window.location.reload();
+          } else {
+            // Check if the refresh token is valid and authenticated
+            if (this.keycloak.tokenParsed) {
+              authProperties.loginReachable = true;
+            }
+            authProperties.isAuthorized = true;
           }
-          authProperties.isAuthorized = true;
-        }
-        app.config.globalProperties.$authProperties = authProperties;
-        app.mount("#app");
-        localStorage.setItem("authStatus", "logged_in");
-        window.addEventListener("storage", (event) => {
-          if (event.key === "authStatus" && event.newValue === "logged_out") {
-            this.logout();
-            //window.location.reload();
-          }
+          app.config.globalProperties.$authProperties = authProperties;
+          app.mount("#app");
+          localStorage.setItem("authStatus", "logged_in");
+          window.addEventListener("storage", (event) => {
+            if (event.key === "authStatus" && event.newValue === "logged_out") {
+              this.logout();
+              //window.location.reload();
+            }
+          });
+          //Token Refresh
+          setInterval(() => {
+            this.updateToken(60, app);
+          }, 60000);
+        })
+        .catch((e) => {
+          console.log(e);
+          authProperties.loginReachable = false;
+          authProperties.isAuthorized = false;
+          app.config.globalProperties.$authProperties = authProperties;
+          app.mount("#app");
         });
-        //Token Refresh
-        setInterval(() => {
-          this.updateToken(60, app);
-        }, 60000);
-      })
-      .catch((e) => {
-        console.log(e);
-        authProperties.loginReachable = false;
-        authProperties.isAuthorized = false;
-        app.config.globalProperties.$authProperties = authProperties;
-        app.mount("#app");
-      });
+    }
   }
 
   getAccessToken() {

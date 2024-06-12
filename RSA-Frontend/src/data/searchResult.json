@@ -1,0 +1,84 @@
+{
+  "searchResults": [
+    {
+      "imageUrl": "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
+      "detailsData": {
+        "kbaNumber": "0603ADK",
+        "vehicleBrand": "Volkswagen",
+        "fuelType": "Diesel",
+        "firstRegistration": "12.12.2005",
+        "certificateOfDecomisioning": "Issued",
+        "vehicleModel": "GOLF",
+        "vin": "WVWZZZ1KZ6W098546",
+        "mileage": "123478",
+        "damage": "Accident Vehicle",
+        "catenaxID": "580d3adf-1981-44a0-a214-13d6ceed9379",
+        "productionPeriod": "10/2003 - 2008"
+      }
+    },
+    {
+      "imageUrl": "../src/assets/demo-images/WG__Bilder_Audi_A4/image3.png",
+      "detailsData": {
+        "kbaNumber": "0588AHL",
+        "vehicleBrand": "Audi",
+        "fuelType": "Petrol",
+        "firstRegistration": "20.08.2010",
+        "certificateOfDecomisioning": "Not Issued",
+        "vehicleModel": "A4",
+        "vin": "WAUZZZ8K9AA123456",
+        "mileage": "98765",
+        "damage": "Minor Dents",
+        "catenaxID": "f20d1d5e-8c34-4d3f-9e37-8f6bce1d1234",
+        "productionPeriod": "2008 - 2012"
+      }
+    },
+    {
+      "imageUrl": "../src/assets/demo-images/WG__Bilder_BMW_3/20231017_131932.jpg",
+      "detailsData": {
+        "kbaNumber": "0005AAB",
+        "vehicleBrand": "BMW",
+        "fuelType": "Diesel",
+        "firstRegistration": "15.03.2012",
+        "certificateOfDecomisioning": "Issued",
+        "vehicleModel": "3 Series",
+        "vin": "WBAVC31070XX12345",
+        "mileage": "134567",
+        "damage": "Engine Failure",
+        "catenaxID": "9d1f3af1-2b54-4f6d-89d8-ef1a7b7c1234",
+        "productionPeriod": "2005 - 2013"
+      }
+    },
+    {
+      "imageUrl": "../src/assets/demo-images/WG__Bilder_Mercedes_C/20231017_131947.jpg",
+      "detailsData": {
+        "kbaNumber": "0708BCD",
+        "vehicleBrand": "Mercedes-Benz",
+        "fuelType": "Petrol",
+        "firstRegistration": "10.11.2015",
+        "certificateOfDecomisioning": "Not Issued",
+        "vehicleModel": "C-Class",
+        "vin": "WDB2040481A123456",
+        "mileage": "54321",
+        "damage": "No Damage",
+        "catenaxID": "d39f2be7-4c35-4e1f-8d8e-f0a9d7b1234",
+        "productionPeriod": "2014 - 2018"
+      }
+    },
+    {
+      "imageUrl": "../src/assets/demo-images/WG__Bilder_Ford_Fiesta/20231017_131941.jpg",
+      "detailsData": {
+        "kbaNumber": "0928EFG",
+        "vehicleBrand": "Ford",
+        "fuelType": "Diesel",
+        "firstRegistration": "05.06.2018",
+        "certificateOfDecomisioning": "Issued",
+        "vehicleModel": "Fiesta",
+        "vin": "WF0VXXGCVVJ123456",
+        "mileage": "67890",
+        "damage": "Total Loss",
+        "catenaxID": "a12c8d7e-9f87-4e3b-89d0-f4e6c5e1234",
+        "productionPeriod": "2017 - Present"
+      }
+    }
+  ]
+}

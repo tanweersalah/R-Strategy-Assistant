@@ -17,9 +17,10 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/detail-page",
+      path: "/detail/:vin?",
       name: "detail-view",
       component: DetailView,
+      props: true,
     },
     {
       path: "/about",

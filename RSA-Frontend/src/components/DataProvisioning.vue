@@ -4,8 +4,8 @@
       <template #content>
         <div class="images-container">
           <img
-            src="/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131932.jpg"
-            alt=""
+            src="/src/assets/demo-images/engine_images/Golf_V.png"
+            alt="engine image"
           />
         </div>
       </template>
@@ -24,7 +24,9 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">17900 Engine, 1,9 TDI 77kW</div>
+            <div class="item-value">
+              {{ productData.productSpecificData.productName }}
+            </div>
           </div>
 
           <div class="section-items">
@@ -36,7 +38,9 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">BKG094975</div>
+            <div class="item-value">
+              {{ productData.productSpecificData.oeNumber }}
+            </div>
           </div>
 
           <div class="section-items">
@@ -48,7 +52,9 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">120</div>
+            <div class="item-value">
+              {{ productData.productSpecificData.weightKg }}
+            </div>
           </div>
           <hr />
 
@@ -63,7 +69,9 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">d60b99b0-f269-42f5- 94d0-64fe0946ed04​</div>
+            <div class="item-value">
+              {{ productData.instanceSpecificData.catenaXId }}
+            </div>
           </div>
 
           <div class="section-items">
@@ -75,11 +83,13 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">NO-57486863942​9552535768526​</div>
+            <div class="item-value">
+              {{ productData.instanceSpecificData.serialNumber }}
+            </div>
           </div>
 
           <div class="section-items">
-            <div class="item-key">Year of Manufacturing</div>
+            <div class="item-key">Year of Manufacturing</div>
 
             <img
               class="info-icon"
@@ -87,11 +97,13 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">2005</div>
+            <div class="item-value">
+              {{ productData.instanceSpecificData.yearOfManufacturing }}
+            </div>
           </div>
 
           <div class="section-items">
-            <div class="item-key">Mileage (km)</div>
+            <div class="item-key">Mileage (km)</div>
 
             <img
               class="info-icon"
@@ -99,11 +111,13 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">34213</div>
+            <div class="item-value">
+              {{ productData.instanceSpecificData.mileageKm }}
+            </div>
           </div>
 
           <div class="section-items">
-            <div class="item-key">Life cycle phase of component</div>
+            <div class="item-key">Life cycle phase of component</div>
 
             <img
               class="info-icon"
@@ -111,7 +125,9 @@
               alt="catena x info button"
             />
 
-            <div class="item-value">1st Life</div>
+            <div class="item-value">
+              {{ productData.instanceSpecificData.lifeCyclePhaseOfComponent }}
+            </div>
           </div>
         </div>
       </template>
@@ -120,10 +136,21 @@
 </template>
 
 <script>
+import { inject } from "vue";
 import BaseContainer from "../components/BaseContainer.vue";
 
 export default {
   components: { BaseContainer },
+  props: ["vin"],
+  beforeMount() {
+    this.productData = this.mockService.getEngineDatasByVIN(this.vin);
+  },
+  data() {
+    return {
+      mockService: inject("mockService"),
+      productData: null,
+    };
+  },
 };
 </script>
 

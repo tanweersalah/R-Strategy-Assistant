@@ -1,19 +1,19 @@
 <template>
   <div class="main-container">
     <div class="container search-box">
-      <h2>Search Results</h2>
+      <h2>Search results for VIN : {{ searchQuery }}</h2>
       <Searchbar class="search-bar" />
     </div>
     <hr />
     <div class="container search-card-container">
       <SearchResultCard
+        v-if="searchResult != null"
         class="grid_card"
-        v-for="(car, index) in cars"
-        :key="index"
-        :image-url="car.imageUrl"
-        :detailsData="car.detailsData"
+        :image-url="searchResult.imageUrl"
+        :detailsData="searchResult.detailsData"
         :viewDetailsButton="true"
       />
+      <div v-else><h2>No result found</h2></div>
     </div>
   </div>
 </template>
@@ -21,15 +21,20 @@
 <script>
 import Searchbar from "../components/Searchbar.vue";
 import SearchResultCard from "../components/SearchResultCard.vue";
+import { inject } from "vue";
 
 export default {
   components: {
     SearchResultCard,
     Searchbar,
   },
+
   data() {
     return {
-      cars: [
+      mockService: inject("mockService"),
+      searchResult: null,
+      searchQuery: null,
+      serachResults: [
         {
           imageUrl:
             "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
@@ -49,6 +54,22 @@ export default {
         },
       ],
     };
+  },
+  beforeMount() {
+    this.searchQuery = this.$route.query.q;
+    this.searchResult = this.mockService.getResultByVIN(this.searchQuery);
+  },
+  watch: {
+    // Watch the $route object for changes
+    "$route.query.q": function (newQuery) {
+      this.searchQuery = newQuery;
+      this.searchByVIN(); // Call a method to update the search results
+    },
+  },
+  methods: {
+    searchByVIN() {
+      this.searchResult = this.mockService.getResultByVIN(this.searchQuery);
+    },
   },
 };
 </script>

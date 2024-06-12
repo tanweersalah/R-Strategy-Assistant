@@ -2,7 +2,7 @@
   <div class="component-main-container">
     <base-container class="container" title="High Value Parts">
       <template #content>
-        <dynamic-table slot="content" class="table" :data="tableData" />
+        <dynamic-table slot="content" class="table" :data="mockData" />
       </template>
     </base-container>
     <base-container class="images-container container" title="Available Images">
@@ -17,49 +17,38 @@
 import DynamicTable from "./TabularComponent.vue";
 import BaseContainer from "./BaseContainer.vue";
 import ImageGrid from "./ImageGrid.vue";
+import { inject } from "vue";
+
 export default {
   components: {
     DynamicTable,
     ImageGrid,
     BaseContainer,
   },
+  props: ["vin"],
+
   data() {
     return {
-      tableData: {
-        Components: ["Engine", "Gearbox", "Battery", "Catalyser"],
-        "Car Body": [
-          "Doors",
-          "Engine Hood",
-          "Tailgate",
-          "Bumper",
-          "Tender",
-          "Exterior Mirros",
-          "Trailer Coupoling",
-        ],
-        Interiors: ["Seat", "Dashboard", "Steering Wheel", "Display"],
-        Chassis: ["Axle Parts", "Chassis"],
-        "Electric & Electronics": [
-          "Headlights / Lighting systems",
-          "Electric Control Unit",
-          "Starter Moter",
-          "Alternator / Generator",
-          "Air Conditioning Compressor",
-          "Tail lights / Rear lights",
-          "Assitance Systems",
-        ],
-      },
+      mockService: inject("mockService"),
+      mockData: null,
+
       imageUrls: [
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131850.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131900.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131932.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131941.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131947.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_132007.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_132104.jpg",
-        "./src/assets/demo-images/WG__Bilder_Golf_V/20231017_131850.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131850.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131900.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131932.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131941.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131947.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_132007.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_132104.jpg",
+        "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131850.jpg",
       ],
     };
+  },
+  beforeMount() {
+    this.mockData = this.mockService.getValuePartsByVIN(this.vin);
+    console.log(this.vin);
+    console.log(this.mockData);
   },
 };
 </script>

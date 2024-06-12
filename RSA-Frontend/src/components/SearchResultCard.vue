@@ -150,7 +150,14 @@ export default {
   },
   methods: {
     redirectToDetails() {
-      this.$router.push("/detail-page");
+      sessionStorage.setItem(
+        "vehicleDetails",
+        JSON.stringify({
+          detailsData: this.detailsData,
+          imageUrl: this.imageUrl,
+        })
+      );
+      this.$router.push("/detail/" + this.detailsData.vin);
     },
   },
 };

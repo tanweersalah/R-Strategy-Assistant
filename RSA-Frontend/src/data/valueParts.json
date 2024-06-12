@@ -1,0 +1,127 @@
+{
+  "WVWZZZ1KZ6W098546": {
+    "Components": ["Engine", "Gearbox", "Battery", "Catalyser"],
+    "Car Body": [
+      "Doors",
+      "Engine Hood",
+      "Tailgate",
+      "Bumper",
+      "Tender",
+      "Exterior Mirrors",
+      "Trailer Coupling"
+    ],
+    "Interiors": ["Seat", "Dashboard", "Steering Wheel", "Display"],
+    "Chassis": ["Axle Parts", "Chassis"],
+    "Electric & Electronics": [
+      "Headlights / Lighting systems",
+      "Electric Control Unit",
+      "Starter Motor",
+      "Alternator / Generator",
+      "Air Conditioning Compressor",
+      "Tail lights / Rear lights",
+      "Assistance Systems"
+    ]
+  },
+  "WAUZZZ8K9AA123456": {
+    "Components": ["Engine", "Transmission", "Exhaust System", "Suspension"],
+    "Car Body": [
+      "Doors",
+      "Hood",
+      "Trunk Lid",
+      "Bumper",
+      "Fender",
+      "Mirrors",
+      "Grille"
+    ],
+    "Interiors": [
+      "Seats",
+      "Dashboard",
+      "Steering Wheel",
+      "Infotainment System"
+    ],
+    "Chassis": ["Frame", "Suspension", "Wheels", "Brakes"],
+    "Electric & Electronics": [
+      "Headlights",
+      "Taillights",
+      "Turn Signals",
+      "Ignition System",
+      "Fuel Injection System",
+      "Climate Control",
+      "Safety Systems"
+    ]
+  },
+  "WBAVC31070XX12345": {
+    "Components": ["Engine", "Gearbox", "Battery", "Catalyser"],
+    "Car Body": [
+      "Doors",
+      "Engine Hood",
+      "Tailgate",
+      "Bumper",
+      "Tender",
+      "Exterior Mirrors",
+      "Trailer Coupling"
+    ],
+    "Interiors": ["Seat", "Dashboard", "Steering Wheel", "Display"],
+    "Chassis": ["Axle Parts", "Chassis"],
+    "Electric & Electronics": [
+      "Headlights / Lighting systems",
+      "Electric Control Unit",
+      "Starter Motor",
+      "Alternator / Generator",
+      "Air Conditioning Compressor",
+      "Tail lights / Rear lights",
+      "Assistance Systems"
+    ]
+  },
+  "WDB2040481A123456": {
+    "Components": ["Engine", "Transmission", "Exhaust System", "Suspension"],
+    "Car Body": [
+      "Doors",
+      "Hood",
+      "Trunk Lid",
+      "Bumper",
+      "Fender",
+      "Mirrors",
+      "Grille"
+    ],
+    "Interiors": [
+      "Seats",
+      "Dashboard",
+      "Steering Wheel",
+      "Infotainment System"
+    ],
+    "Chassis": ["Frame", "Suspension", "Wheels", "Brakes"],
+    "Electric & Electronics": [
+      "Headlights",
+      "Taillights",
+      "Turn Signals",
+      "Ignition System",
+      "Fuel Injection System",
+      "Climate Control",
+      "Safety Systems"
+    ]
+  },
+  "WF0VXXGCVVJ123456": {
+    "Components": ["Engine", "Gearbox", "Battery", "Catalyser"],
+    "Car Body": [
+      "Doors",
+      "Engine Hood",
+      "Tailgate",
+      "Bumper",
+      "Tender",
+      "Exterior Mirrors",
+      "Trailer Coupling"
+    ],
+    "Interiors": ["Seat", "Dashboard", "Steering Wheel", "Display"],
+    "Chassis": ["Axle Parts", "Chassis"],
+    "Electric & Electronics": [
+      "Headlights / Lighting systems",
+      "Electric Control Unit",
+      "Starter Motor",
+      "Alternator / Generator",
+      "Air Conditioning Compressor",
+      "Tail lights / Rear lights",
+      "Assistance Systems"
+    ]
+  }
+}

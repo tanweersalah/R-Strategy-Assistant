@@ -1,9 +1,14 @@
 <template>
   <div class="search-container">
-    <input type="text" class="search-input" placeholder=" " />
+    <input
+      type="text"
+      v-model="searchQuery"
+      class="search-input"
+      placeholder=" "
+    />
     <label class="search-placeholder">Enter VIN to Search</label>
 
-    <button class="search-button" @click="redirectToSearch">
+    <button class="search-button" @click="search">
       <i class="fa fa-search"></i>
     </button>
   </div>
@@ -11,9 +16,17 @@
 
 <script>
 export default {
+  data() {
+    return {
+      searchQuery: "",
+    };
+  },
   methods: {
-    redirectToSearch() {
-      this.$router.push("/search");
+    search() {
+      this.$router.push({
+        path: "/search",
+        query: { q: this.searchQuery },
+      });
     },
   },
 };

@@ -1,0 +1,72 @@
+{
+  "WVWZZZ1KZ6W098546": {
+    "productSpecificData": {
+      "productName": "Engine Model: 17900, 1.9 TDI 77kW",
+      "oeNumber": "BKG094975",
+      "weightKg": "120"
+    },
+    "instanceSpecificData": {
+      "catenaXId": "d60b99b0-f269-42f5-94d0-64fe0946ed04",
+      "serialNumber": "NO-574868639429552535768526",
+      "yearOfManufacturing": "2005",
+      "mileageKm": "34213",
+      "lifeCyclePhaseOfComponent": "1st Life"
+    }
+  },
+  "WAUZZZ8K9AA123456": {
+    "productSpecificData": {
+      "productName": "Engine Model: XYZ123, 2.0 TFSI 120kW",
+      "oeNumber": "ABC123",
+      "weightKg": "100"
+    },
+    "instanceSpecificData": {
+      "catenaXId": "123e4567-e89b-12d3-a456-426614174000",
+      "serialNumber": "SN123456",
+      "yearOfManufacturing": "2010",
+      "mileageKm": "25000",
+      "lifeCyclePhaseOfComponent": "2nd Life"
+    }
+  },
+  "WBAVC31070XX12345": {
+    "productSpecificData": {
+      "productName": "Engine Model: ZZZ789, 2.5 TDI 140kW",
+      "oeNumber": "XYZ789",
+      "weightKg": "150"
+    },
+    "instanceSpecificData": {
+      "catenaXId": "98765432-10ab-cdef-0123-456789abcdef",
+      "serialNumber": "SN987654",
+      "yearOfManufacturing": "2015",
+      "mileageKm": "50000",
+      "lifeCyclePhaseOfComponent": "3rd Life"
+    }
+  },
+  "WDB2040481A123456": {
+    "productSpecificData": {
+      "productName": "Engine Model: ABC456, 3.0 TDI 160kW",
+      "oeNumber": "DEF456",
+      "weightKg": "130"
+    },
+    "instanceSpecificData": {
+      "catenaXId": "abcdef12-3456-7890-1234-567890abcdef",
+      "serialNumber": "SN654321",
+      "yearOfManufacturing": "2012",
+      "mileageKm": "40000",
+      "lifeCyclePhaseOfComponent": "4th Life"
+    }
+  },
+  "WF0VXXGCVVJ123456": {
+    "productSpecificData": {
+      "productName": "Engine Model: GHI789, 1.8 TDCi 95kW",
+      "oeNumber": "GHI789",
+      "weightKg": "110"
+    },
+    "instanceSpecificData": {
+      "catenaXId": "abcd1234-5678-90ab-cdef-0123456789ab",
+      "serialNumber": "SN123789",
+      "yearOfManufacturing": "2018",
+      "mileageKm": "60000",
+      "lifeCyclePhaseOfComponent": "5th Life"
+    }
+  }
+}

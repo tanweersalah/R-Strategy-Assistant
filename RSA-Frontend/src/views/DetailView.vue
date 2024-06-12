@@ -5,8 +5,8 @@
     </div>
     <SearchResultCard
       class="search-card"
-      :image-url="cars.imageUrl"
-      :detailsData="cars.detailsData"
+      :detailsData="vehicleData.detailsData"
+      :image-url="vehicleData.imageUrl"
       :viewDetailsButton="false"
     />
     <hr />
@@ -24,7 +24,7 @@
     </div>
     <hr />
     <div class="container component-container">
-      <component :is="activeComponent"></component>
+      <component :is="activeComponent" :vin="vin"></component>
     </div>
   </div>
 </template>
@@ -45,6 +45,8 @@ export default {
     TechnicalDetails,
     DigitalTwinUpdate,
   },
+  props: ["vin"],
+
   computed: {
     activeComponent() {
       return this.buttons[this.activeButton].component;
@@ -59,8 +61,15 @@ export default {
       this.$router.push("/search");
     },
   },
+  beforeMount() {
+    this.vehicleData = JSON.parse(sessionStorage.getItem("vehicleDetails"));
+    console.log(this.vehicleData);
+    console.log(this.vehicleData.imageUrl);
+    console.log(this.vin);
+  },
   data() {
     return {
+      vehicleData: JSON.parse(sessionStorage.getItem("vehicleDetails")),
       activeButton: 0,
       buttons: [
         {
@@ -90,23 +99,6 @@ export default {
         },
         { text: "Feedback", icon: "fa fa-comments", component: Feedback },
       ],
-      cars: {
-        imageUrl:
-          "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
-        detailsData: {
-          kbaNumber: "0603ADK",
-          vehicleBrand: "Volkswagen",
-          fuelType: "Diesel",
-          firstRegistration: "12.12.2005",
-          certificateOfDecomisioning: "Issued",
-          vehicleModel: "GOLF",
-          vin: "WVWZZZ1KZ6W098546",
-          mileage: "123478",
-          damage: "Accident Vehicle",
-          catenaxID: "580d3adf-1981-44a0-​a214-13d6ceed9379​",
-          productionPeriod: "10/2003 - 2008",
-        },
-      },
     };
   },
 };
