@@ -24,13 +24,14 @@ services:
     volumes:
       - ./keycloak/ce-assistant.json:/opt/keycloak/data/import/ce_assistant_realm.json
     ports:
-      - "8080:8080"
+      - "0.0.0.0:8080:8080"
+      - "0.0.0.0:8443:8443"
     depends_on:
       - postgres
     networks:
       - ce-net
   frontend:
-    image: tanweersalah/ce-frontend:0.0.2
+    image: frontend
     ports:
       - 80:5173
 networks:
