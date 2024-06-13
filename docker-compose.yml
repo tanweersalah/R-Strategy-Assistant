@@ -4,7 +4,7 @@ services:
     image: postgres:15.4-alpine
     container_name: postgres-ce
     environment:
-      POSTGRES_DB: postgres
+      POSTGRES_DB: keycloak
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     ports:
