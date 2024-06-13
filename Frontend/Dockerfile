@@ -1,15 +1,24 @@
 # baseimage
-FROM node:18.20-alpine 
+FROM node:18.20-alpine as build-stage
 
 # download and install program 
 
 WORKDIR /usr/app
 
-COPY ./package.json ./
+COPY ./package*.json ./
 RUN npm install
 
 COPY ./ ./
 
-# what to do when start the container
-CMD ["npm","run","dev", "--","--host"]
+RUN npm run build
+
+FROM nginx:stable-alpine as production-stage
+# Copy the build application from the previous stage to the Nginx container
+COPY --from=build-stage /usr/app/dist /usr/share/nginx/html
+# Copy the nginx configuration file
+COPY ./.nginx/default.conf /etc/nginx/conf.d/default.conf
+# Expose the port 8080
+EXPOSE 8080
+# Start Nginx to serve the application
+CMD ["nginx", "-g", "daemon off;"]
 

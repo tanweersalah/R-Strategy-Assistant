@@ -7,13 +7,9 @@
         </div>
       </router-link>
 
-      <div class="message"><button @click="logout">Logout</button></div>
+      <div class="message"></div>
       <div class="profile_menu">
-        <img
-          alt="Profile image"
-          class="profile-image"
-          src="@/assets/user-image.png"
-        />
+        <UserDropdown />
       </div>
     </div>
   </header>
@@ -22,7 +18,10 @@
 <script>
 import { inject } from "vue";
 
+import UserDropdown from "./UserDropdown.vue";
+
 export default {
+  components: { UserDropdown },
   data() {
     return {
       auth: inject("authentication"),
@@ -65,7 +64,6 @@ export default {
   height: auto;
   justify-self: end;
   align-content: center;
-  overflow: hidden;
 }
 
 .profile_menu img {

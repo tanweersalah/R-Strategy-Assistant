@@ -66,7 +66,7 @@ export default {
 /* Tooltip text */
 .tooltip .tooltiptext {
   font-size: 0.7rem;
-  visibility: hidden;
+  display: none;
   width: 150px;
   max-width: 250px;
   padding: 8px;
@@ -77,8 +77,7 @@ export default {
   border-radius: 6px;
   border: 1px solid #ccc;
   position: absolute;
-  top: 100%;
-  left: 50%;
+
   transform: translateX(-50%);
   margin-top: 5px;
   z-index: 1;
@@ -86,10 +85,9 @@ export default {
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+  display: block;
 }
 
-/* Dynamic positioning classes */
 .tooltip-left {
   left: -65px !important;
   right: 0;

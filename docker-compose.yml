@@ -4,7 +4,7 @@ services:
     image: postgres:15.4-alpine
     container_name: postgres-ce
     environment:
-      POSTGRES_DB: miw
+      POSTGRES_DB: postgres
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     ports:
@@ -25,15 +25,14 @@ services:
       - ./keycloak/ce-assistant.json:/opt/keycloak/data/import/ce_assistant_realm.json
     ports:
       - "0.0.0.0:8080:8080"
-      - "0.0.0.0:8443:8443"
     depends_on:
       - postgres
     networks:
       - ce-net
   frontend:
-    image: frontend
+    image: tanweersalah/ce-frontend:0.0.3
     ports:
-      - 80:5173
+      - 80:8080
 networks:
   ce-net:
     name: ce-net
