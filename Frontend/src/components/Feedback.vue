@@ -42,6 +42,30 @@ export default {
       },
     };
   },
+  beforeCreate() {
+    console.log("beforeCreate: instance is being created");
+  },
+  created() {
+    console.log("created: instance has been created");
+  },
+  beforeMount() {
+    console.log("beforeMount: instance is about to be mounted");
+  },
+  mounted() {
+    console.log("mounted: instance has been mounted");
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate: data is about to be updated");
+  },
+  updated() {
+    console.log("updated: data has been updated");
+  },
+  beforeDestroy() {
+    console.log("beforeDestroy: instance is about to be destroyed");
+  },
+  destroyed() {
+    console.log("destroyed: instance has been destroyed");
+  },
 };
 </script>
 

@@ -2,7 +2,10 @@
   <div class="component-main-container">
     <base-container class="container" title="High Value Parts">
       <template #content>
-        <dynamic-table slot="content" class="table" :data="mockData" />
+        <div v-if="mockData">
+          <dynamic-table slot="content" class="table" :data="mockData" />
+        </div>
+        <div v-else class="table"><HalfCircleSpinner /></div>
       </template>
     </base-container>
     <base-container class="images-container container" title="Available Images">
@@ -18,20 +21,21 @@ import DynamicTable from "./TabularComponent.vue";
 import BaseContainer from "./BaseContainer.vue";
 import ImageGrid from "./ImageGrid.vue";
 import { inject } from "vue";
+import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 
 export default {
   components: {
     DynamicTable,
     ImageGrid,
     BaseContainer,
+    HalfCircleSpinner,
   },
-  props: ["vin"],
 
   data() {
     return {
       mockService: inject("mockService"),
       mockData: null,
-
+      vin: inject("vin"),
       imageUrls: [
         "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131850.jpg",
         "/src/assets/demo-images/WG__Bilder_Golf_V/20231017_131900.jpg",
@@ -45,8 +49,8 @@ export default {
       ],
     };
   },
-  beforeMount() {
-    this.mockData = this.mockService.getValuePartsByVIN(this.vin);
+  async created() {
+    this.mockData = await this.mockService.getValuePartsByVIN(this.vin);
     console.log(this.vin);
     console.log(this.mockData);
   },

@@ -5,23 +5,29 @@ import engineData from "../data/engineData.json";
 
 class MockService {
   // Method to get all search results
+  constructor(time_delay) {
+    this.time_delay = time_delay;
+  }
   getSearchResults() {
     return search.searchResults;
   }
 
   // Method to find a result by VIN
-  getResultByVIN(vin) {
+  async getResultByVIN(vin) {
+    await new Promise((resolve) => setTimeout(resolve, this.time_delay));
     return search.searchResults.find(
       (result) => result.detailsData.vin === vin
     );
   }
   // Method to find a value parts by VIN
-  getValuePartsByVIN(vin) {
+  async getValuePartsByVIN(vin) {
+    await new Promise((resolve) => setTimeout(resolve, this.time_delay));
     return valueParts[vin];
   }
-  getEngineDatasByVIN(vin) {
+  async getEngineDatasByVIN(vin) {
+    await new Promise((resolve) => setTimeout(resolve, this.time_delay));
     return engineData[vin];
   }
 }
 
-export default new MockService();
+export default new MockService(3000);

@@ -6,29 +6,20 @@
     </div>
     <hr />
     <div class="container search-card-container">
-      <Suspense>
-        <template #default>
-          <transition-group name="search-card" tag="div">
-            <div v-if="searchResult" :key="searchResult.detailsData.vin">
-              <SearchResultCard
-                class="grid_card"
-                :image-url="searchResult.imageUrl"
-                :detailsData="searchResult.detailsData"
-                :viewDetailsButton="true"
-              />
-            </div>
-            <div
-              v-else-if="searchCompleted && !searchResult"
-              :key="searchQuery"
-            >
-              <h2>No result found</h2>
-            </div>
-          </transition-group>
-        </template>
-        <template #fallback>
-          <div class="loading">Loading...</div>
-        </template>
-      </Suspense>
+      <transition-group name="search-card" tag="div">
+        <div v-if="searchResult" :key="searchResult.detailsData.vin">
+          <SearchResultCard
+            class="grid_card"
+            :image-url="searchResult.imageUrl"
+            :detailsData="searchResult.detailsData"
+            :viewDetailsButton="true"
+          />
+        </div>
+        <div v-else-if="searchCompleted && !searchResult" :key="searchQuery">
+          <h2>No result found</h2>
+        </div>
+        <div v-else class="loading"><HalfCircleSpinner /></div>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -36,12 +27,14 @@
 <script>
 import Searchbar from "../components/Searchbar.vue";
 import SearchResultCard from "../components/SearchResultCard.vue";
+import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 import { inject } from "vue";
 
 export default {
   components: {
     SearchResultCard,
     Searchbar,
+    HalfCircleSpinner,
   },
 
   data() {
@@ -68,8 +61,10 @@ export default {
       this.searchResult = null;
       this.searchCompleted = false;
       // Simulate a delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      this.searchResult = this.mockService.getResultByVIN(this.searchQuery);
+
+      this.searchResult = await this.mockService.getResultByVIN(
+        this.searchQuery
+      );
       this.searchCompleted = true;
     },
   },

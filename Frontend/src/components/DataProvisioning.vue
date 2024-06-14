@@ -12,7 +12,7 @@
     </BaseContainer>
     <BaseContainer class="base-container" title="Engine Information">
       <template #content>
-        <div class="engine-info-container">
+        <div v-if="productData" class="engine-info-container">
           <div class="section-heading product">Product Specific Data</div>
 
           <div class="section-items">
@@ -130,6 +130,7 @@
             </div>
           </div>
         </div>
+        <div v-else><HalfCircleSpinner /></div>
       </template>
     </BaseContainer>
   </div>
@@ -138,16 +139,17 @@
 <script>
 import { inject } from "vue";
 import BaseContainer from "../components/BaseContainer.vue";
-
+import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 export default {
-  components: { BaseContainer },
-  props: ["vin"],
-  beforeMount() {
-    this.productData = this.mockService.getEngineDatasByVIN(this.vin);
+  components: { BaseContainer, HalfCircleSpinner },
+
+  async beforeMount() {
+    this.productData = await this.mockService.getEngineDatasByVIN(this.vin);
   },
   data() {
     return {
       mockService: inject("mockService"),
+      vin: inject("vin"),
       productData: null,
     };
   },
@@ -174,9 +176,9 @@ export default {
 }
 .section-items {
   display: grid;
-  grid-template-columns: 1fr 30px 1fr; 
-  align-items: center; 
-  gap: 10px; 
+  grid-template-columns: 1fr 30px 1fr;
+  align-items: center;
+  gap: 10px;
 }
 .section-heading {
   font-weight: 600;

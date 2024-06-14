@@ -96,11 +96,12 @@
 <script>
 import CxTooltip from "./CxTooltip.vue";
 import BaseContainer from "./BaseContainer.vue";
+import { inject } from "vue";
 
 export default {
   components: { CxTooltip, BaseContainer },
   data() {
-    return { co2emission: 300 };
+    return { co2emission: 300, vin: inject("vin") };
   },
 };
 </script>

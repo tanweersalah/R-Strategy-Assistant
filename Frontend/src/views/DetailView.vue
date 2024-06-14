@@ -24,9 +24,9 @@
     </div>
     <hr />
     <div class="container component-container">
-      <Transition name="detail-component" appear>
-        <component :is="activeComponent" :vin="vin"></component>
-      </Transition>
+      <transition name="detail-component" appear>
+        <keep-alive><component :is="activeComponent"> </component></keep-alive>
+      </transition>
     </div>
   </div>
 </template>
@@ -39,6 +39,8 @@ import DataProvisioning from "../components/DataProvisioning.vue";
 import DigitalTwinUpdate from "../components/DigitalTwinUpdate.vue";
 import EnvironmentalAssessment from "../components/EnvironmentalAssessment.vue";
 import Feedback from "../components/Feedback.vue";
+
+import { provide } from "vue";
 
 export default {
   components: {
@@ -54,6 +56,7 @@ export default {
       return this.buttons[this.activeButton].component;
     },
   },
+
   methods: {
     setActiveButton(index) {
       this.activeButton = index;
@@ -64,7 +67,9 @@ export default {
     },
   },
   beforeMount() {
+    provide("vin", this.vin);
     this.vehicleData = JSON.parse(sessionStorage.getItem("vehicleDetails"));
+
     console.log(this.vehicleData);
     console.log(this.vehicleData.imageUrl);
     console.log(this.vin);
@@ -73,6 +78,7 @@ export default {
     return {
       vehicleData: JSON.parse(sessionStorage.getItem("vehicleDetails")),
       activeButton: 0,
+      createdComponents: {},
       buttons: [
         {
           text: "Vehicle Details",
@@ -107,7 +113,6 @@ export default {
 </script>
 
 <style scoped>
-/* we will explain what these classes do next! */
 .detail-component-enter-from {
   opacity: 0;
   transform: translateX(-100%);
