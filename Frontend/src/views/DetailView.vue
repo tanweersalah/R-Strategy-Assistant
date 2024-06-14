@@ -24,7 +24,7 @@
     </div>
     <hr />
     <div class="container component-container">
-      <Transition>
+      <Transition name="detail-component" appear>
         <component :is="activeComponent" :vin="vin"></component>
       </Transition>
     </div>
@@ -108,14 +108,34 @@ export default {
 
 <style scoped>
 /* we will explain what these classes do next! */
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
+.detail-component-enter-from {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.detail-component-enter-to {
+  opacity: 1;
+  transform: translateX(0px);
+}
+.detail-component-enter-active {
+  transition: all 0.6s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.detail-component-leave-active {
+  transition: all 0.6s ease;
+  position: absolute;
+}
+.detail-component-move {
+  transition: all 0.6s ease;
+}
+
+.detail-component-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.detail-component-leave-to {
   opacity: 0;
+  transform: translateX(100%);
 }
 hr {
   width: 100%;

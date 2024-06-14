@@ -1,16 +1,19 @@
 <template>
   <div class="search-container">
-    <input
-      type="text"
-      v-model="searchQuery"
-      class="search-input"
-      placeholder=" "
-    />
-    <label class="search-placeholder">Enter VIN to Search</label>
+    <form v-on:submit.prevent="search">
+      <input
+        type="text"
+        v-model="searchQuery"
+        class="search-input"
+        placeholder=" "
+        required
+      />
+      <label class="search-placeholder">Enter VIN to Search</label>
 
-    <button class="search-button" @click="search">
-      <i class="fa fa-search"></i>
-    </button>
+      <button class="search-button" @click="search">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
   </div>
 </template>
 
@@ -23,10 +26,13 @@ export default {
   },
   methods: {
     search() {
-      this.$router.push({
-        path: "/search",
-        query: { q: this.searchQuery },
-      });
+      if (this.searchQuery.trim() !== "") {
+        // If the field is empty, do not proceed with the search
+        this.$router.push({
+          path: "/search",
+          query: { q: this.searchQuery },
+        });
+      }
     },
   },
 };

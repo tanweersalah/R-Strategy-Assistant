@@ -1,4 +1,4 @@
-const IDP_URL = "https://164.92.235.168:8443/";
+const IDP_URL = "https://tanflix.me/auth";
 const REDIRECT_URI = window.location.origin;
 const CLIENT_ID = "miw_public";
 const REALM = "ce_assistant";

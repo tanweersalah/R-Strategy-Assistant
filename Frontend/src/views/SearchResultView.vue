@@ -6,14 +6,29 @@
     </div>
     <hr />
     <div class="container search-card-container">
-      <SearchResultCard
-        v-if="searchResult != null"
-        class="grid_card"
-        :image-url="searchResult.imageUrl"
-        :detailsData="searchResult.detailsData"
-        :viewDetailsButton="true"
-      />
-      <div v-else><h2>No result found</h2></div>
+      <Suspense>
+        <template #default>
+          <transition-group name="search-card" tag="div">
+            <div v-if="searchResult" :key="searchResult.detailsData.vin">
+              <SearchResultCard
+                class="grid_card"
+                :image-url="searchResult.imageUrl"
+                :detailsData="searchResult.detailsData"
+                :viewDetailsButton="true"
+              />
+            </div>
+            <div
+              v-else-if="searchCompleted && !searchResult"
+              :key="searchQuery"
+            >
+              <h2>No result found</h2>
+            </div>
+          </transition-group>
+        </template>
+        <template #fallback>
+          <div class="loading">Loading...</div>
+        </template>
+      </Suspense>
     </div>
   </div>
 </template>
@@ -34,30 +49,12 @@ export default {
       mockService: inject("mockService"),
       searchResult: null,
       searchQuery: null,
-      serachResults: [
-        {
-          imageUrl:
-            "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
-          detailsData: {
-            kbaNumber: "0603ADK",
-            vehicleBrand: "Volkswagen",
-            fuelType: "Diesel",
-            firstRegistration: "12.12.2005",
-            certificateOfDecomisioning: "Issued",
-            vehicleModel: "GOLF",
-            vin: "WVWZZZ1KZ6W098546",
-            mileage: "123478",
-            damage: "Accident Vehicle",
-            catenaxID: "580d3adf-1981-44a0-​a214-13d6ceed9379​",
-            productionPeriod: "10/2003 - 2008",
-          },
-        },
-      ],
+      searchCompleted: false,
     };
   },
   beforeMount() {
     this.searchQuery = this.$route.query.q;
-    this.searchResult = this.mockService.getResultByVIN(this.searchQuery);
+    this.searchByVIN();
   },
   watch: {
     // Watch the $route object for changes
@@ -67,8 +64,13 @@ export default {
     },
   },
   methods: {
-    searchByVIN() {
+    async searchByVIN() {
+      this.searchResult = null;
+      this.searchCompleted = false;
+      // Simulate a delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       this.searchResult = this.mockService.getResultByVIN(this.searchQuery);
+      this.searchCompleted = true;
     },
   },
 };
@@ -110,5 +112,30 @@ hr {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+/* Transition classes for search-card */
+.search-card-enter-from,
+.search-card-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.search-card-enter-to,
+.search-card-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.search-card-enter-active {
+  transition: all 0.5s ease;
+}
+.search-card-leave-active {
+  transition: all 0.5s ease;
+  position: absolute;
+}
+
+.search-card-move {
+  transition: all 0.6s ease;
 }
 </style>
