@@ -3,10 +3,7 @@
     <BaseContainer class="base-container" title="Images">
       <template #content>
         <div class="images-container">
-          <img
-            src="/src/assets/demo-images/engine_images/Golf_V.png"
-            alt="engine image"
-          />
+          <img :src="`/demo-images/${engineImage}`" alt="engine image" />
         </div>
       </template>
     </BaseContainer>
@@ -151,6 +148,7 @@ export default {
       mockService: inject("mockService"),
       vin: inject("vin"),
       productData: null,
+      engineImage: "engine_images/Golf_V.png",
     };
   },
 };

@@ -1,7 +1,7 @@
 {
   "searchResults": [
     {
-      "imageUrl": "../src/assets/demo-images/WG__Bilder_Golf_V/20231017_131955.jpg",
+      "imageUrl": "WG__Bilder_Golf_V/20231017_131955.jpg",
       "detailsData": {
         "kbaNumber": "0603ADK",
         "vehicleBrand": "Volkswagen",
@@ -17,7 +17,7 @@
       }
     },
     {
-      "imageUrl": "../src/assets/demo-images/WG__Bilder_Audi_A4/image3.png",
+      "imageUrl": "WG__Bilder_Audi_A4/image3.png",
       "detailsData": {
         "kbaNumber": "0588AHL",
         "vehicleBrand": "Audi",
@@ -33,7 +33,7 @@
       }
     },
     {
-      "imageUrl": "../src/assets/demo-images/WG__Bilder_BMW_3/20231017_131932.jpg",
+      "imageUrl": "WG__Bilder_BMW_3/20231017_131932.jpg",
       "detailsData": {
         "kbaNumber": "0005AAB",
         "vehicleBrand": "BMW",
@@ -49,7 +49,7 @@
       }
     },
     {
-      "imageUrl": "../src/assets/demo-images/WG__Bilder_Mercedes_C/20231017_131947.jpg",
+      "imageUrl": "WG__Bilder_Mercedes_C/20231017_131947.jpg",
       "detailsData": {
         "kbaNumber": "0708BCD",
         "vehicleBrand": "Mercedes-Benz",
@@ -65,7 +65,7 @@
       }
     },
     {
-      "imageUrl": "../src/assets/demo-images/WG__Bilder_Ford_Fiesta/20231017_131941.jpg",
+      "imageUrl": "WG__Bilder_Ford_Fiesta/20231017_131941.jpg",
       "detailsData": {
         "kbaNumber": "0928EFG",
         "vehicleBrand": "Ford",

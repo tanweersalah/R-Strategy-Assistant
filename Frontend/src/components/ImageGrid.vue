@@ -1,7 +1,7 @@
 <template>
   <div class="image-grid">
     <div v-for="(image, index) in images" :key="index" class="image-item">
-      <img :src="image" alt="Image" class="image" />
+      <img :src="`/demo-images/${image}`" alt="Image" class="image" />
     </div>
   </div>
 </template>

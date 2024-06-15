@@ -2,7 +2,7 @@
   <div>
     <div class="container card-container">
       <div class="item image-container">
-        <img :src="imageUrl" alt="Image" class="thumbnail" />
+        <img :src="`/demo-images/${imageUrl}`" alt="Image" class="thumbnail" />
       </div>
       <div class="sub_heading heading_1">Product Specific Data</div>
       <div class="info-sub-grid">
