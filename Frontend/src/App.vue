@@ -2,19 +2,51 @@
 import { RouterView } from "vue-router";
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
+import LoginSplash from "./components/LoginSplash.vue";
+import SplashScreenView from "./views/SplashScreenView.vue";
 </script>
 
 <template>
-  <div class="app-container">
-    <div class="header"><TheHeader /></div>
-
-    <div class="router-view"><RouterView /></div>
-
-    <div class="footer">
-      <TheFooter id="footer" />
+  <div>
+    <!-- Splash Screen -->
+    <div v-if="showSplashScreen" class="splash-screen">
+      <LoginSplash />
     </div>
+
+    <!-- Main App Content -->
+    <transition name="fade">
+      <div v-if="!showSplashScreen" class="app-container">
+        <div class="header"><TheHeader /></div>
+
+        <div class="router-view"><RouterView /></div>
+
+        <div class="footer">
+          <TheFooter id="footer" />
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showSplashScreen: true,
+    };
+  },
+  mounted() {
+    if (sessionStorage.getItem("splashScreenShown") === "true") {
+      this.showSplashScreen = false;
+    } else {
+      setTimeout(() => {
+        this.showSplashScreen = false;
+        sessionStorage.setItem("splashScreenShown", "true");
+      }, 3000);
+    }
+  },
+};
+</script>
 
 <style scoped>
 .app-container {
@@ -47,5 +79,14 @@ import TheFooter from "./components/TheFooter.vue";
   flex-shrink: 0;
   display: flex;
   justify-content: center;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

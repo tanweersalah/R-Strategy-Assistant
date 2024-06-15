@@ -21,8 +21,10 @@ export default class Authentication {
         .then((auth) => {
           if (!auth) {
             window.location.reload();
+            sessionStorage.setItem("splashScreenShown", "false");
           } else {
             // Check if the refresh token is valid and authenticated
+
             if (this.keycloak.tokenParsed) {
               authProperties.loginReachable = true;
             }
@@ -34,7 +36,6 @@ export default class Authentication {
           window.addEventListener("storage", (event) => {
             if (event.key === "authStatus" && event.newValue === "logged_out") {
               this.logout();
-              //window.location.reload();
             }
           });
           //Token Refresh
@@ -110,6 +111,8 @@ export default class Authentication {
       .logout(logoutOptions)
       .then((success) => {
         console.log("--> log: logout success ", success);
+        sessionStorage.setItem("splashScreenShown", "false");
+        app.config.globalProperties.$authProperties.isAuthorized = false;
         if (localStorage.getItem("authStatus") === "logged_in") {
           localStorage.setItem("authStatus", "logged_out");
         }
