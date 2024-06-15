@@ -3,12 +3,13 @@
     <div class="container header-container">
       <router-link to="/" class="logo-link">
         <div class="app-logo">
-          <img alt="R Strategy logo" src="@/assets/n-logo-h.png" />
+          <img alt="R Strategy logo" src="@/assets/Catena-X_Logo.png" />
         </div>
       </router-link>
 
       <div class="message"></div>
       <div class="profile_menu">
+        <UserDropdown />
         <UserDropdown />
       </div>
     </div>
@@ -39,8 +40,6 @@ export default {
 .app-logo img {
   width: auto;
   height: 50px;
-  border-radius: 12px;
-  border: 1px solid #a8a5a5;
   pointer-events: none;
 }
 .app-logo,
@@ -55,15 +54,18 @@ export default {
 
 .header-container {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   padding: 5px;
   height: 65px;
 }
 
 .profile_menu {
   height: auto;
+  display: flex;
+  gap: 10px;
   justify-self: end;
-  align-content: center;
+
+  align-items: center;
 }
 
 .profile_menu img {

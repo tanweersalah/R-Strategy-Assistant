@@ -1,7 +1,6 @@
 <template>
   <div class="tooltip" @mouseenter="checkPosition" @mouseleave="resetPosition">
-    <!-- Use the prop value for the image source -->
-    <img :src="imgSrc" alt="catena x info button" />
+    <img :src="imageSrc()" alt="info button" />
     <div class="tooltiptext" :class="tooltipClass">
       <slot>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
@@ -14,9 +13,12 @@
 </template>
 
 <script>
+import catena_info from "@/assets/catena-logo.jpg";
+import info_image from "@/assets/info.png";
 export default {
   props: {
-    imgSrc: String, // Define imgSrc as a prop
+    imgSrc: String,
+    tooltip_image: String,
   },
   data() {
     return {
@@ -24,6 +26,13 @@ export default {
     };
   },
   methods: {
+    imageSrc() {
+      if (this.tooltip_image === "catena") {
+        return catena_info;
+      } else {
+        return info_image;
+      }
+    },
     checkPosition(event) {
       const tooltip = event.currentTarget.querySelector(".tooltiptext");
       const rect = tooltip.getBoundingClientRect();
@@ -116,5 +125,7 @@ img {
   height: auto;
   min-width: 5px;
   max-width: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 </style>

@@ -44,6 +44,12 @@ export default {
   position: relative;
   width: 85%;
 }
+.search-container form {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
 
 .search-input {
   padding: 5px 0px 5px 15px; /* Adjust padding as needed */
@@ -51,7 +57,7 @@ export default {
   border-radius: 20px; /* Rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow */
   width: 100%; /* Adjust width as needed */
-  height: 100%; /* Adjust width as needed */
+  min-height: 100%; /* Adjust width as needed */
   transition: box-shadow 0.3s ease;
 }
 
