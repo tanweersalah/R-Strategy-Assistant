@@ -54,54 +54,36 @@ a,
 
 /* 2xl */
 @media (max-width: 1536px) {
-  h2 {
-    color: pink;
-  }
   .container {
     max-width: 1280px;
   }
 }
 /* xl */
 @media (max-width: 1280px) {
-  h2 {
-    color: orange;
-  }
   .container {
     max-width: 1024px;
   }
 }
 /* lg */
 @media (max-width: 1024px) {
-  h2 {
-    color: yellow;
-  }
   .container {
     max-width: 768px;
   }
 }
 /* md */
 @media (max-width: 768px) {
-  h2 {
-    color: green;
-  }
   .container {
     max-width: 640px;
   }
 }
 /* sm */
 @media (max-width: 640px) {
-  h2 {
-    color: blue;
-  }
   .container {
     max-width: 475px;
   }
 }
 /* xs */
 @media (max-width: 475px) {
-  h2 {
-    color: red;
-  }
   .container {
     max-width: 475px;
   }
