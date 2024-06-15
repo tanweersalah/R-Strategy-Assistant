@@ -9,7 +9,16 @@
 
       <div class="message"></div>
       <div class="profile_menu">
-        <UserDropdown />
+        <router-link to="/learn-more">
+          <div class="learn-more-icon">
+            <img
+              alt="catena x learn more image"
+              src="@/assets/catena-logo.jpg"
+            />
+            <p>Learn More</p>
+          </div>
+        </router-link>
+
         <UserDropdown />
       </div>
     </div>
@@ -64,15 +73,25 @@ export default {
   display: flex;
   gap: 10px;
   justify-self: end;
-
   align-items: center;
 }
 
-.profile_menu img {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #ccc;
+.learn-more-icon img {
+  margin-top: 5px;
+  width: 30px;
+  height: 30px;
   display: block;
   border-radius: 50%;
+}
+.learn-more-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.learn-more-icon p {
+  font-size: 8px;
+  font-weight: 500;
+  color: black;
 }
 </style>
