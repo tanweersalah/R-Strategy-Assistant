@@ -52,12 +52,23 @@
             </div>
           </div>
         </div>
+
+        <div class="recommended-strategy">
+          <div>Recommended R-Strategy :</div>
+          <div class="default-input rstrategy-input">Reuse</div>
+        </div>
       </template>
     </base-container>
 
     <base-container title="End Of Life Decision">
       <template #info>
-        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+        <cx-tooltip imgSrc="info">
+          <img
+            class="tool-tip-image"
+            src="@/assets/environment_eol.png"
+            alt=""
+          />
+        </cx-tooltip>
       </template>
 
       <template #content>
@@ -107,6 +118,29 @@ export default {
 </script>
 
 <style scoped>
+.recommended-strategy {
+  justify-self: center;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.default-btn {
+  width: 100%;
+}
+.rstrategy-input {
+  width: 200px;
+  background-color: #fff;
+  color: #57a957;
+  font-weight: 600;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+.tool-tip-image {
+  width: 40vw;
+}
 .end-of-life-decision {
   display: flex;
   gap: 20px;
@@ -175,7 +209,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 20%;
 }
 .grid-item-remanufacture .grid-item-bargraph {

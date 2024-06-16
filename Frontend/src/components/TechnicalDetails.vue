@@ -5,7 +5,20 @@
       title="Basic R-Strategies Information"
     >
       <template #info>
-        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+        <cx-tooltip imgSrc="info">
+          <p>
+            Based on Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF
+            THE COUNCIL on circularity requirements for vehicle design and on
+            management of end-of-life vehicles, amending Regulations (EU)
+            2018/858 and 2019/1020 and repealing Directives 2000/53/EC and
+            2005/64/EC Learn More :
+            <i
+              href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52023PC0451"
+              target="blank"
+              >Click Here</i
+            >
+          </p>
+        </cx-tooltip>
       </template>
       <template #content>
         <div class="content-grid">
@@ -41,7 +54,16 @@
       title="Quality for possible R-Strategy"
     >
       <template #info>
-        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+        <cx-tooltip imgSrc="info"
+          ><p>
+            Bases on VDI 4080 Learn More :
+            <i
+              href="https://www.dinmedia.de/de/technische-regel/vdi-4080/118177766"
+              target="blank"
+              >Click Here</i
+            >
+          </p>
+        </cx-tooltip>
       </template>
       <template #content>
         <div class="content-grid">
@@ -129,7 +151,8 @@
             class="tool-tip-image"
             src="@/assets/technical-feasibility-info.png"
             alt=""
-        /></cx-tooltip>
+          />
+        </cx-tooltip>
       </template>
       <template #content>
         <div class="button-container">
