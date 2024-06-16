@@ -133,6 +133,4 @@ hr {
 .search-card-move {
   transition: all 0.6s ease;
 }
-
-
 </style>

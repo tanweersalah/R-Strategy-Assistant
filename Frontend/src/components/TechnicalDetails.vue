@@ -124,7 +124,12 @@
       title="Technical feasibility of R-Strategy"
     >
       <template #info>
-        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+        <cx-tooltip imgSrc="info">
+          <img
+            class="tool-tip-image"
+            src="@/assets/technical-feasibility-info.png"
+            alt=""
+        /></cx-tooltip>
       </template>
       <template #content>
         <div class="button-container">
@@ -148,9 +153,13 @@ export default {
 </script>
 
 <style scoped>
+.tool-tip-image {
+  width: 40vw;
+}
 .button-container {
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 .base-container {

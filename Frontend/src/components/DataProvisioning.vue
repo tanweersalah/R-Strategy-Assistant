@@ -14,12 +14,11 @@
 
           <div class="section-items">
             <div class="item-key">Product Name</div>
-
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="true" tooltip_image="catena">
+                {{ tooltipData.productName }}</cx-tooltip
+              >
+            </div>
 
             <div class="item-value">
               {{ productData.productSpecificData.productName }}
@@ -29,11 +28,11 @@
           <div class="section-items">
             <div class="item-key">OE Number</div>
 
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="true" tooltip_image="catena">
+                {{ tooltipData.oeNumber }}</cx-tooltip
+              >
+            </div>
 
             <div class="item-value">
               {{ productData.productSpecificData.oeNumber }}
@@ -43,11 +42,11 @@
           <div class="section-items">
             <div class="item-key">Weight (kg)</div>
 
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="false" tooltip_image="catena">
+                {{ tooltipData.catenaXId }}</cx-tooltip
+              >
+            </div>
 
             <div class="item-value">
               {{ productData.productSpecificData.weightKg }}
@@ -59,12 +58,11 @@
 
           <div class="section-items">
             <div class="item-key">Catena-X ID</div>
-
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="true" tooltip_image="catena">
+                {{ tooltipData.catenaxID }}</cx-tooltip
+              >
+            </div>
 
             <div class="item-value">
               {{ productData.instanceSpecificData.catenaXId }}
@@ -74,11 +72,11 @@
           <div class="section-items">
             <div class="item-key">Serial Number</div>
 
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="true" tooltip_image="catena">
+                {{ tooltipData.serialNumber }}</cx-tooltip
+              >
+            </div>
 
             <div class="item-value">
               {{ productData.instanceSpecificData.serialNumber }}
@@ -87,12 +85,11 @@
 
           <div class="section-items">
             <div class="item-key">Year of Manufacturing</div>
-
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="true" tooltip_image="catena">
+                <li>{{ tooltipData.yearOfManufacturing }}</li>
+              </cx-tooltip>
+            </div>
 
             <div class="item-value">
               {{ productData.instanceSpecificData.yearOfManufacturing }}
@@ -101,12 +98,11 @@
 
           <div class="section-items">
             <div class="item-key">Mileage (km)</div>
-
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="false" tooltip_image="catena">
+                <li>{{ tooltipData.lifeCycle }}</li>
+              </cx-tooltip>
+            </div>
 
             <div class="item-value">
               {{ productData.instanceSpecificData.mileageKm }}
@@ -115,12 +111,11 @@
 
           <div class="section-items">
             <div class="item-key">Life cycle phase of component</div>
-
-            <img
-              class="info-icon"
-              src="\src\assets\catena-logo.jpg"
-              alt="catena x info button"
-            />
+            <div class="info-icon">
+              <cx-tooltip v-show="true" tooltip_image="catena">
+                <li v-for="item in tooltipData.lifeCycle">{{ item }}</li>
+              </cx-tooltip>
+            </div>
 
             <div class="item-value">
               {{ productData.instanceSpecificData.lifeCyclePhaseOfComponent }}
@@ -137,17 +132,21 @@
 import { inject } from "vue";
 import BaseContainer from "../components/BaseContainer.vue";
 import HalfCircleSpinner from "../components/LoadingSpinner.vue";
+import CxTooltip from "./CxTooltip.vue";
+
 export default {
-  components: { BaseContainer, HalfCircleSpinner },
+  components: { BaseContainer, HalfCircleSpinner, CxTooltip },
 
   async beforeMount() {
     this.productData = await this.mockService.getEngineDatasByVIN(this.vin);
+    this.tooltipData = this.mockService.getTooltipData("engineInformation");
   },
   data() {
     return {
       mockService: inject("mockService"),
       vin: inject("vin"),
       productData: null,
+      tooltipData: null,
       engineImage: "engine_images/Golf_V.png",
     };
   },
@@ -189,10 +188,7 @@ export default {
 }
 
 .info-icon {
-  max-width: 15px;
   margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 .images-container {
   display: grid;

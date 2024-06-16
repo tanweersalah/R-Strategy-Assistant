@@ -1,7 +1,10 @@
 <template>
   <div class="tooltip" @mouseenter="checkPosition" @mouseleave="resetPosition">
     <img :src="imageSrc()" alt="info button" />
-    <div class="tooltiptext" :class="tooltipClass">
+    <div
+      class="tooltiptext"
+      :class="[tooltipClass, { show: isTooltipVisible }]"
+    >
       <slot>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
         asperiores, cum perferendis dolorem neque nulla. Expedita, accusamus
@@ -76,8 +79,9 @@ export default {
 .tooltip .tooltiptext {
   font-size: 0.7rem;
   display: none;
-  width: 150px;
-  max-width: 250px;
+  width: fit-content;
+  min-width: 200px;
+
   padding: 8px;
   background-color: #fff;
   color: black;
@@ -94,6 +98,10 @@ export default {
 }
 
 .tooltip:hover .tooltiptext {
+  display: block;
+}
+
+.tooltip-text.show {
   display: block;
 }
 
@@ -125,7 +133,6 @@ img {
   height: auto;
   min-width: 5px;
   max-width: 12px;
-  border: 1px solid #ccc;
   border-radius: 3px;
 }
 </style>

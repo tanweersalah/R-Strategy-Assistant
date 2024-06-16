@@ -1,0 +1,23 @@
+{
+  "resultCard": {
+    "vehicleBrand": "CX - 0019 Aspect Model: SerialPart - manufacturerId",
+    "vehicleModel": "CX - 0019 Aspect Model: SerialPart - nameAtManufacturer",
+    "productionPeriod": "CX – 0043 Aspect Model: PartTypeInformation – functionValidFrom, functionValidUntil",
+    "catenaxID": "CX - 0019 Aspect Model: SerialPart - catenaXId",
+    "vin": "CX - 0019 Aspect Model: SerialPart - vin",
+    "certificateOfDecomisioning": "CX - 0019 Aspect Model: DecommissioningCertificate"
+  },
+  "engineInformation": {
+    "productName": "CX - 0019 Aspect Model: SerialPart - manufacturerPartID",
+    "oeNumber": "CX - 0019 Aspect Model: SerialPart - nameAtManufacturer",
+    "catenaxID": "CX - 0019 Aspect Model: SerialPart - catenaXId ",
+    "serialNumber": "CX - 0019 Aspect Model: SerialPart - partInstanceId ",
+    "yearOfManufacturing": "CX - 0019 Aspect Model: SerialPart - date",
+    "lifeCycle": [
+      "CX – 0107 Aspect Model: ReuseCertificate",
+      "CX - 0109 Aspect Model: RefurbishingCertificate",
+      "CX - 0111 Aspect Model: RemanufacturingCertificate",
+      "CX - 0112 Aspect Model: RecyclingStrategyCertificate"
+    ]
+  }
+}

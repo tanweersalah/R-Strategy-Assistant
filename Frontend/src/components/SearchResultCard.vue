@@ -9,7 +9,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Vehicle Brand</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">{{
+              tooltipData.vehicleBrand
+            }}</cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vehicleBrand }}</div>
@@ -19,7 +21,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Vehicle Model</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">{{
+              tooltipData.vehicleModel
+            }}</cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vehicleModel }}</div>
@@ -29,7 +33,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Production Period</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">{{
+              tooltipData.productionPeriod
+            }}</cx-tooltip>
           </div>
         </div>
 
@@ -40,7 +46,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Fuel Type</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.fuelType }}</div>
@@ -50,7 +56,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">KBA Number</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.kbaNumber }}</div>
@@ -69,7 +75,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Catena X - ID</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">{{
+              tooltipData.catenaxID
+            }}</cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.catenaxID }}​</div>
@@ -79,7 +87,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">VIN</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">
+              {{ tooltipData.vin }}
+            </cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.vin }}</div>
@@ -89,7 +99,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">First Registration</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.firstRegistration }}</div>
@@ -99,7 +109,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Certificate of Decomisioning</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">
+              {{ tooltipData.certificateOfDecomisioning }}
+            </cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">
@@ -111,7 +123,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Mileage</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.mileage }}</div>
@@ -120,12 +132,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Damage</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-                quod?
-              </p>
-            </cx-tooltip>
+            <cx-tooltip v-show="false" tooltip_image="catena"> </cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.damage }}</div>
@@ -135,7 +142,9 @@
 </template>
 
 <script>
+import { inject } from "vue";
 import CxTooltip from "./CxTooltip.vue";
+
 export default {
   components: { CxTooltip },
   props: {
@@ -145,8 +154,12 @@ export default {
   },
   data() {
     return {
-      isHovered: false,
+      mockService: inject("mockService"),
+      tooltipData: null,
     };
+  },
+  beforeMount() {
+    this.tooltipData = this.mockService.getTooltipData("resultCard");
   },
   methods: {
     redirectToDetails() {
@@ -173,8 +186,8 @@ export default {
 
   height: fit-content;
 
-  grid-template-rows: 0.7fr 2fr 1fr 0.7fr 2fr;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: fit-content(100%) 1.5fr 0.6fr fit-content(100%) 1.5fr;
+  grid-template-columns: fit-content(100%) repeat(6, 1fr);
   grid-gap: 1px 1px;
   padding: 5px;
   background-color: #f7f7f7;
@@ -219,7 +232,9 @@ export default {
 .image-container {
   display: flex;
   justify-content: center;
+  align-self: center;
   grid-area: 1 / 1 / -1 / 1;
+  margin: 5px;
 }
 
 .image-container img {
@@ -241,7 +256,9 @@ export default {
 }
 
 .heading_2 {
-  grid-area: 4/2/4/-1;
+  grid-area: 4/2/5/-1;
+  position: relative;
+  bottom: 8px;
 }
 
 .border-line {
@@ -254,15 +271,22 @@ export default {
 
 .detail-button {
   grid-area: 3/7/3/7;
+  height: fit-content;
 }
 
 .detail-button button {
-  width: 100%;
-  height: 110%;
+  width: 90%;
+  height: fit-content;
   border: 1px solid #ccc;
-  background-color: #81bb3933;
+  background-color: #8db759bb;
+  box-shadow: 2px 4px 5px rgb(115, 110, 110);
   border-radius: 20px;
-
-  font-size: 1vw;
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+.detail-button button:hover {
+  box-shadow: 2px 2px 5px rgb(115, 110, 110);
 }
 </style>

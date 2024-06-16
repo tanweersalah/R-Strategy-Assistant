@@ -2,6 +2,7 @@
 import search from "../data/searchResult.json";
 import valueParts from "../data/valueParts.json";
 import engineData from "../data/engineData.json";
+import tooltipData from "../data/tooltipData.json";
 
 class MockService {
   // Method to get all search results
@@ -27,6 +28,10 @@ class MockService {
   async getEngineDatasByVIN(vin) {
     await new Promise((resolve) => setTimeout(resolve, this.time_delay));
     return engineData[vin];
+  }
+
+  getTooltipData(tooltipName) {
+    return tooltipData[tooltipName];
   }
 }
 
