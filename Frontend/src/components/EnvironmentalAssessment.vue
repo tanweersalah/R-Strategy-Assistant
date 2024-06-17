@@ -1,9 +1,6 @@
 <template>
   <div class="component-container container">
     <base-container class="caused-emission-container" title="Caused Emissions">
-      <template #info>
-        <cx-tooltip imgSrc="/src/assets/info.png"></cx-tooltip>
-      </template>
       <template #content>
         <h3 class="grid-description">
           Life cycle impact assessment based on ISO 14040 and ISO 14044.
@@ -15,7 +12,10 @@
             <div class="grid-item-section-name">
               <button class="default-btn">New Production</button>
             </div>
-            <div class="grid-item-bargraph"><p>1026 kg CO2</p></div>
+            <div class="grid-item-bargraph">
+              <span style="font-size: 100%">&#8765;</span>
+              <p>1026 kg CO2</p>
+            </div>
           </div>
           <div class="component-level top-grid-item-two-column">
             <div class="top-grid-item grid-item-reuse">
@@ -194,13 +194,13 @@ export default {
   color: #fff;
 }
 
-.grid-item-bargraph {
+.new-production .grid-item-bargraph {
   margin-top: 10px;
-  background-color: #777d93;
   display: flex;
+  background-image: url(../assets/bargraph.svg);
+  background-size: cover;
   align-items: center;
   justify-content: center;
-
   height: 100%;
 }
 .grid-item-reuse .grid-item-bargraph {

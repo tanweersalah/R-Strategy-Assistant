@@ -1,0 +1,93 @@
+Vehicle Dismantling Instructions
+--------------------------------
+
+Tools and Equipment Needed:
+- Socket set and wrenches
+- Screwdrivers (flathead and Phillips)
+- Pliers
+- Jack and jack stands
+- Wheel chocks
+- Drain pans
+- Safety glasses and gloves
+- Impact wrench (optional)
+- Plastic bags and labels (for organizing screws and small parts)
+- Workshop manual for the specific vehicle model
+
+Step-by-Step Instructions:
+
+1. Preparation:
+   - Ensure Safety:
+     - Wear safety glasses and gloves.
+     - Work in a well-ventilated area.
+     - Ensure the vehicle is on a level surface.
+     - Disconnect the battery to prevent any electrical hazards.
+   - Gather Tools and Equipment:
+     - Make sure you have all the necessary tools and equipment ready.
+
+2. Initial Steps:
+   - Lift the Vehicle:
+     - Use a jack to lift the vehicle and secure it on jack stands.
+     - Place wheel chocks behind the wheels to prevent the vehicle from rolling.
+   - Remove the Wheels:
+     - Use a lug wrench or impact wrench to remove the wheels for easier access to components.
+
+3. Drain Fluids:
+   - Drain the Engine Oil:
+     - Place a drain pan under the oil pan.
+     - Remove the oil drain plug and let the oil drain completely.
+     - Replace the drain plug.
+   - Drain the Coolant:
+     - Place a drain pan under the radiator.
+     - Open the radiator drain valve and let the coolant drain completely.
+   - Drain Other Fluids:
+     - Drain the transmission fluid, brake fluid, and power steering fluid by following similar steps.
+
+4. Remove External Parts:
+   - Remove the Hood:
+     - Unbolt the hinges and carefully lift the hood off the vehicle.
+   - Remove the Bumpers:
+     - Unbolt and remove the front and rear bumpers.
+   - Remove the Lights:
+     - Unbolt and disconnect the headlights, taillights, and any other external lights.
+
+5. Remove Interior Components:
+   - Remove Seats:
+     - Unbolt and remove the front and rear seats.
+   - Remove the Dashboard:
+     - Carefully unbolt and disconnect the dashboard, paying attention to electrical connections.
+   - Remove the Carpeting and Trim:
+     - Remove the carpeting, door panels, and any interior trim pieces.
+
+6. Remove Engine and Transmission:
+   - Disconnect Electrical Connections:
+     - Disconnect all electrical connections to the engine and transmission.
+   - Remove the Radiator and Hoses:
+     - Disconnect and remove the radiator and all connected hoses.
+   - Unbolt Engine and Transmission Mounts:
+     - Unbolt the engine and transmission mounts.
+   - Use a Hoist to Remove the Engine and Transmission:
+     - Use an engine hoist to lift and remove the engine and transmission from the vehicle.
+
+7. Remove Suspension and Steering Components:
+   - Remove the Steering Column:
+     - Disconnect and remove the steering column.
+   - Remove the Front and Rear Suspension:
+     - Unbolt and remove the front and rear suspension components, including control arms, struts, and shocks.
+   - Remove the Axles and Driveshaft:
+     - Disconnect and remove the axles and driveshaft.
+
+8. Remove Remaining Body Panels:
+   - Remove the Doors:
+     - Unbolt and remove the doors.
+   - Remove the Trunk Lid:
+     - Unbolt and remove the trunk lid.
+   - Remove the Fenders:
+     - Unbolt and remove the front and rear fenders.
+
+9. Final Steps:
+   - Label and Organize Parts:
+     - Place all removed parts in labeled plastic bags or containers for easy reassembly or disposal.
+   - Clean Up:
+     - Clean the work area and properly dispose of any fluids and debris.
+
+Note: Always refer to the vehicle's workshop manual for model-specific instructions and follow all safety guidelines throughout the process.

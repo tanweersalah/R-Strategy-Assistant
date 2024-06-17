@@ -1,8 +1,12 @@
 <template>
   <div class="image-grid">
-    <div v-for="(image, index) in images" :key="index" class="image-item">
-      <img :src="`/demo-images/${image}`" alt="Image" class="image" />
-    </div>
+    <img
+      v-for="(image, index) in images"
+      :key="index"
+      :src="`/demo-images/${image}`"
+      alt="Image"
+      class="image"
+    />
   </div>
 </template>
 
@@ -28,21 +32,17 @@ export default {
 
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 10px;
-}
-
-.image-item {
-  display: flex;
-  justify-content: center; /* Center align horizontally */
-  align-items: center; /* Center align vertically */
-  overflow: hidden;
-  border-radius: 10px; /* Rounded border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-items: center;
 }
 
 .image {
-  width: 80%;
+  overflow: hidden;
+  border-radius: 10px; /* Rounded border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+  width: 90%;
+  max-width: 200px;
   height: auto;
-  border: 1px solid #ccc;
-  border-radius: 10px;
 }
 </style>

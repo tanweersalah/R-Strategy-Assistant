@@ -2,7 +2,16 @@
   <div class="component-main-container">
     <base-container title="Feedback" class="container">
       <template #content>
-        <div class="feedback-container">
+        <div v-if="sendingFeedback" class="loading-container">
+          <half-circle-spinner></half-circle-spinner>
+        </div>
+        <div v-else-if="feedbackSent" class="sent-container">
+          <p>You feedback has been sent to the manufacturer.</p>
+          <button class="send-feedback default-btn" @click="resetFeedback">
+            Send New Feedback
+          </button>
+        </div>
+        <div class="feedback-container" v-else>
           <div
             class="question-container"
             v-for="(question, key) in feedback.questions"
@@ -14,7 +23,9 @@
               placeholder="Answer"
             ></textarea>
           </div>
-          <button class="send-feedback default-btn">Send Feedback</button>
+          <button class="send-feedback default-btn" @click="sendFeedback">
+            Send Feedback
+          </button>
         </div>
       </template>
     </base-container>
@@ -23,11 +34,13 @@
 
 <script>
 import BaseContainer from "../components/BaseContainer.vue";
-
+import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 export default {
-  components: { BaseContainer },
+  components: { BaseContainer, HalfCircleSpinner },
   data() {
     return {
+      feedbackSent: true,
+      sendingFeedback: false,
       feedback: {
         questions: [
           "During the dismantling process, did you find that certain components were susceptible to damage? If so, what were they and what were the reasons for this?",
@@ -42,35 +55,36 @@ export default {
       },
     };
   },
-  beforeCreate() {
-    console.log("beforeCreate: instance is being created");
-  },
-  created() {
-    console.log("created: instance has been created");
-  },
-  beforeMount() {
-    console.log("beforeMount: instance is about to be mounted");
-  },
-  mounted() {
-    console.log("mounted: instance has been mounted");
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate: data is about to be updated");
-  },
-  updated() {
-    console.log("updated: data has been updated");
-  },
-  beforeDestroy() {
-    console.log("beforeDestroy: instance is about to be destroyed");
-  },
-  destroyed() {
-    console.log("destroyed: instance has been destroyed");
+  methods: {
+    sendFeedback() {
+      this.sendingFeedback = true;
+      setTimeout(() => {
+        this.feedbackSent = true;
+        this.sendingFeedback = false;
+      }, 2000);
+    },
+    resetFeedback() {
+      this.feedbackSent = false;
+    },
   },
 };
 </script>
 
 <style scoped>
+.loading-container,
+.sent-container {
+  padding: 20px;
+  min-width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+.sent-container {
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+}
 .question-container {
+  width: 100%;
   padding: 20px;
   color: black;
 }

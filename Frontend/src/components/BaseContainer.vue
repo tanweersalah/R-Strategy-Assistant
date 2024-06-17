@@ -49,7 +49,8 @@ export default {
 }
 
 .container-content {
-  margin: 18px 15px 10px 18px;
+  width: 100%;
+  padding: 18px 15px 10px 18px;
   justify-self: center;
   align-self: center;
 }
