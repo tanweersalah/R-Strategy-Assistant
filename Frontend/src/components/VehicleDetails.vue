@@ -5,13 +5,20 @@
         <div v-if="mockData">
           <dynamic-table slot="content" class="table" :data="mockData" />
         </div>
-        <div v-else class="table"><HalfCircleSpinner /></div>
+        <div v-else class="loading">
+          <HalfCircleSpinner />
+        </div>
       </template>
     </base-container>
     <base-container class="images-container container" title="Available Images">
       <template #content>
-        <image-grid class="images" :imageUrls="imageUrls"
-      /></template>
+        <div v-if="mockData">
+          <image-grid class="images" :imageUrls="imageUrls" />
+        </div>
+
+        <div v-else class="loading">
+          <HalfCircleSpinner /></div
+      ></template>
     </base-container>
   </div>
 </template>
@@ -66,7 +73,10 @@ export default {
 
   gap: 20px;
 }
-
+.loading {
+  display: flex;
+  justify-content: center;
+}
 .table {
   width: 100%;
 }

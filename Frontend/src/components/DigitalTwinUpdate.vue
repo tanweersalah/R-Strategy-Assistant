@@ -2,7 +2,13 @@
   <div class="component-main-container container">
     <base-container title="End Of Life">
       <template #info>
-        <cx-tooltip imgSrc="/src/assets/info.png"> </cx-tooltip>
+        <cx-tooltip imgSrc="info">
+          <img
+            class="tool-tip-image"
+            src="@/assets/environment_eol.png"
+            alt=""
+          />
+        </cx-tooltip>
       </template>
 
       <template #content>
@@ -127,6 +133,9 @@ export default {
   justify-content: center;
   color: green;
   font-size: 0.7rem;
+}
+.tool-tip-image {
+  width: 40vw;
 }
 .end-of-life-decision {
   display: flex;

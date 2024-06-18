@@ -2,9 +2,10 @@
   <div class="component-main-container container">
     <BaseContainer class="base-container" title="Images">
       <template #content>
-        <div class="images-container">
+        <div v-if="productData" class="images-container">
           <img :src="`/demo-images/${engineImage}`" alt="engine image" />
         </div>
+        <div v-else class="loading"><HalfCircleSpinner /></div>
       </template>
     </BaseContainer>
     <BaseContainer class="base-container" title="Engine Information">
@@ -122,7 +123,7 @@
             </div>
           </div>
         </div>
-        <div v-else><HalfCircleSpinner /></div>
+        <div v-else class="loading"><HalfCircleSpinner /></div>
       </template>
     </BaseContainer>
   </div>
@@ -159,6 +160,11 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
 }
 .engine-info-container {
   display: grid;

@@ -5,10 +5,13 @@
       <div class="overly_description">
         <h1>About CE-ASSISTANT :</h1>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et eveniet
-          vero cum omnis corporis labore vitae pariatur nemo deserunt.
-          Praesentium accusantium consequuntur deleniti quidem nesciunt, enim
-          quibusdam cum porro beatae?
+          In the dynamic landscape of sustainability and resource conservation,
+          the Circular Strategy Assistant (CE-Assistant) emerges as a pioneering
+          solution, providing decision support for the selection of optimal
+          strategies concerning end-of-life vehicles. At its core, the
+          CE-Assistant tackles the task of evaluating and choosing from a
+          spectrum of R-Strategies—namely Reuse, Remanufacturing, Recycling, and
+          Recovery.
         </p>
       </div>
     </div>

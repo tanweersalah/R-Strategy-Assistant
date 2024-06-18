@@ -27,6 +27,7 @@ export default {
   background-color: #f7f7f7;
   display: grid;
   grid-template-rows: 20px auto;
+  min-width: 250px;
   width: max-content;
   height: 100%;
   min-height: 50px;

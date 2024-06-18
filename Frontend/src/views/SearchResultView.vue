@@ -72,6 +72,9 @@ export default {
 </script>
 
 <style scoped>
+.loading {
+  margin: 50px;
+}
 .main-container {
   width: 100vw;
   display: flex;

@@ -74,7 +74,7 @@
                 <input
                   class="default-input"
                   type="text"
-                  value="123123"
+                  value="34213"
                   disabled
                 />
               </div>
@@ -241,7 +241,10 @@ export default {
   width: 100px;
   min-width: fit-content;
 }
-
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .quality-text {
   margin-left: 20px;
   color: green;

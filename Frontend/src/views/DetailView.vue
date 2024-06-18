@@ -63,7 +63,10 @@ export default {
     },
 
     redirectToSearch() {
-      this.$router.push("/search");
+      this.$router.push({
+        path: "/search",
+        query: { q: this.vin },
+      });
     },
   },
   beforeMount() {
@@ -146,7 +149,7 @@ hr {
   width: 100%;
 }
 .back-container {
-  margin: 10px 20px 10px 20px;
+  margin: 20px 20px 10px 20px;
   display: flex;
   justify-content: start;
   background-color: #f7f7f7;
@@ -155,6 +158,7 @@ hr {
 }
 
 .back-container p {
+  cursor: pointer;
   margin: 5px;
   margin-left: 10px;
   font-size: 12px;

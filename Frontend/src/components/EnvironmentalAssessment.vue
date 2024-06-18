@@ -12,8 +12,18 @@
             <div class="grid-item-section-name">
               <button class="default-btn">New Production</button>
             </div>
-            <div class="grid-item-bargraph">
-              <span style="font-size: 100%">&#8765;</span>
+            <div
+              class="grid-item-bargraph"
+              v-bind:style="{
+                'background-image': 'url(' + bgimage + ')',
+              }"
+            >
+              <cx-tooltip imgSrc="info" class="tooltip-top-right"
+                ><p>
+                  Based on Ecoinvent 3.9 data bases, method for impact
+                  assessment ReCiPe2016​
+                </p>
+              </cx-tooltip>
               <p>1026 kg CO2</p>
             </div>
           </div>
@@ -24,6 +34,12 @@
                 <button class="default-btn">Reuse</button>
               </div>
               <div class="grid-item-bargraph">
+                <cx-tooltip imgSrc="info" class="tooltip-top-right"
+                  ><p>
+                    Results from the project Digma-DT, mass allocation based on
+                    ISO 14040 and 14044.​
+                  </p>
+                </cx-tooltip>
                 <p>7.284 kg CO2</p>
               </div>
             </div>
@@ -108,11 +124,16 @@
 import CxTooltip from "./CxTooltip.vue";
 import BaseContainer from "./BaseContainer.vue";
 import { inject } from "vue";
+import backgroundBargraph from "@/assets/bargraph.svg";
 
 export default {
   components: { CxTooltip, BaseContainer },
   data() {
-    return { co2emission: 300, vin: inject("vin") };
+    return {
+      co2emission: 300,
+      vin: inject("vin"),
+      bgimage: backgroundBargraph,
+    };
   },
 };
 </script>
@@ -126,6 +147,25 @@ export default {
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.tooltip-top-right {
+  grid-area: 1/1/2/2;
+  justify-self: end;
+  align-self: start;
+  padding: 3px 8px 0 0;
+  color: #000000 !important;
+}
+.tooltip-top-right p {
+  color: #000000 !important;
+}
+.grid-item-reuse .grid-item-bargraph {
+}
+.grid-item-reuse .grid-item-bargraph p,
+.new-production .grid-item-bargraph p {
+  grid-area: 1/1/2/2;
+  justify-self: center;
+  color: #fff;
 }
 .default-btn {
   width: 100%;
@@ -196,8 +236,9 @@ export default {
 
 .new-production .grid-item-bargraph {
   margin-top: 10px;
-  display: flex;
-  background-image: url(../assets/bargraph.svg);
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   background-size: cover;
   align-items: center;
   justify-content: center;
@@ -206,7 +247,9 @@ export default {
 .grid-item-reuse .grid-item-bargraph {
   margin-top: 10px;
   background-color: #ffa601;
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: center;
   height: 20%;

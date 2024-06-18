@@ -39,7 +39,7 @@ export default {
   components: { BaseContainer, HalfCircleSpinner },
   data() {
     return {
-      feedbackSent: true,
+      feedbackSent: false,
       sendingFeedback: false,
       feedback: {
         questions: [
