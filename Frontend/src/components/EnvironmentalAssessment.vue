@@ -12,12 +12,7 @@
             <div class="grid-item-section-name">
               <button class="default-btn">New Production</button>
             </div>
-            <div
-              class="grid-item-bargraph"
-              v-bind:style="{
-                'background-image': 'url(' + bgimage + ')',
-              }"
-            >
+            <div class="grid-item-bargraph">
               <cx-tooltip imgSrc="info" class="tooltip-top-right"
                 ><p>
                   Based on Ecoinvent 3.9 data bases, method for impact
@@ -124,7 +119,6 @@
 import CxTooltip from "./CxTooltip.vue";
 import BaseContainer from "./BaseContainer.vue";
 import { inject } from "vue";
-import backgroundBargraph from "@/assets/bargraph.svg";
 
 export default {
   components: { CxTooltip, BaseContainer },
@@ -132,7 +126,6 @@ export default {
     return {
       co2emission: 300,
       vin: inject("vin"),
-      bgimage: backgroundBargraph,
     };
   },
 };
@@ -239,6 +232,7 @@ export default {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
+  background-image: url("/bargraph.svg");
   background-size: cover;
   align-items: center;
   justify-content: center;
