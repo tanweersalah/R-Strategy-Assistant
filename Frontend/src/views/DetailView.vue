@@ -18,7 +18,12 @@
         :class="{ active: activeButton === index }"
         @click="setActiveButton(index)"
       >
-        <i :class="button.icon"></i>
+        <img
+          v-if="button.text === 'Digital Twin Update'"
+          src="@/assets/dt_update.png"
+          alt=""
+        />
+        <i v-else :class="button.icon"></i>
         <span>{{ button.text }}</span>
       </div>
     </div>
@@ -197,6 +202,9 @@ hr {
 }
 .button-container i {
   font-size: 18px;
+}
+.button-container img {
+  width: 22px;
 }
 .tab-container .button-container:hover {
   background-color: #0057b370;
