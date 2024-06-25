@@ -17,7 +17,7 @@
             <label class="default-label" for="component-selector"
               >Select Component</label
             >
-            <select class="default-input" id="component-selector">
+            <select class="default-input" id="component-selector" v-model="selectedComponent" @change="handleChangeComponent">
               <option value="" selected disabled class="placeholder">
                 Select an option
               </option>
@@ -28,7 +28,7 @@
             <label class="default-label" for="functional-quality"
               >Select End of Life Decision</label
             >
-            <select class="default-input" id="functional-quality">
+            <select class="default-input" id="functional-quality" v-model="selectedEOD" @change="handleChangeDecision">
               <option value="" selected disabled class="placeholder">
                 Select an option
               </option>
@@ -88,7 +88,31 @@ export default {
       sendingInfo: false,
     };
   },
+  beforeMount(){
+    const storedComponent = sessionStorage.getItem('endOfLifeComponent');
+    if (storedComponent) {
+      this.selectedComponent = storedComponent;
+    }
+    else {
+      this.selectedComponent = '';
+    }
+    const storedDecision = sessionStorage.getItem('endOfLifeDecision');
+    if (storedDecision) {
+      this.selectedEOD = storedDecision;
+    }
+    else {
+      this.selectedEOD = '';
+    }
+  },
   methods: {
+    handleChangeComponent(event) {
+      const selectedComponent = event.target.value;
+      sessionStorage.setItem('endOfLifeComponent', selectedComponent);
+    },
+    handleChangeDecision(event) {
+      const selectedEOD = event.target.value;
+      sessionStorage.setItem('endOfLifeDecision', selectedEOD);
+    },
     changeStatusMessage(message) {
       this.sendingInfo = true;
       setTimeout(() => {

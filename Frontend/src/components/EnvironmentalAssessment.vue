@@ -1,6 +1,15 @@
 <template>
   <div class="component-container container">
     <base-container class="caused-emission-container" title="Caused Emissions">
+    <template #info>
+        <cx-tooltip imgSrc="info">
+          <img
+            class="tool-tip-image"
+            src="@/assets/environment_eol.png"
+            alt=""
+          />
+        </cx-tooltip>
+      </template>
       <template #content>
         <h3 class="grid-description">
           Life cycle impact assessment based on ISO 14040 and ISO 14044.
@@ -19,7 +28,7 @@
                   assessment ReCiPe2016​
                 </p>
               </cx-tooltip>
-              <p>1026 kg CO2</p>
+              <p>1026 kg CO²</p>
             </div>
           </div>
           <div class="component-level top-grid-item-two-column">
@@ -35,7 +44,7 @@
                     ISO 14040 and 14044.​
                   </p>
                 </cx-tooltip>
-                <p>7.284 kg CO2</p>
+                <p>7.284 kg CO²</p>
               </div>
             </div>
             <div class="top-grid-item grid-item-remanufacture">
@@ -72,15 +81,7 @@
     </base-container>
 
     <base-container title="End Of Life Decision">
-      <template #info>
-        <cx-tooltip imgSrc="info">
-          <img
-            class="tool-tip-image"
-            src="@/assets/environment_eol.png"
-            alt=""
-          />
-        </cx-tooltip>
-      </template>
+      
 
       <template #content>
         <div class="end-of-life-decision">
@@ -88,7 +89,7 @@
             <label class="default-label" for="component-selector"
               >Select Component</label
             >
-            <select class="default-input" id="component-selector">
+            <select class="default-input" id="component-selector" v-model="selectedComponent" @change="handleChangeComponent">
               <option value="" selected disabled class="placeholder">
                 Select an option
               </option>
@@ -99,7 +100,7 @@
             <label class="default-label" for="functional-quality"
               >Select End of Life Decision</label
             >
-            <select class="default-input" id="functional-quality">
+            <select class="default-input" id="functional-quality"  v-model="selectedEOD" @change="handleChangeDecision">
               <option value="" selected disabled class="placeholder">
                 Select an option
               </option>
@@ -122,6 +123,32 @@ import { inject } from "vue";
 
 export default {
   components: { CxTooltip, BaseContainer },
+  beforeMount(){
+    const storedComponent = sessionStorage.getItem('endOfLifeComponent');
+    if (storedComponent) {
+      this.selectedComponent = storedComponent;
+    }
+    else {
+      this.selectedComponent = '';
+    }
+    const storedDecision = sessionStorage.getItem('endOfLifeDecision');
+    if (storedDecision) {
+      this.selectedEOD = storedDecision;
+    }
+    else {
+      this.selectedEOD = '';
+    }
+  },
+  methods:{
+    handleChangeComponent(event) {
+      const selectedComponent = event.target.value;
+      sessionStorage.setItem('endOfLifeComponent', selectedComponent);
+    },
+    handleChangeDecision(event) {
+      const selectedEOD = event.target.value;
+      sessionStorage.setItem('endOfLifeDecision', selectedEOD);
+    }
+  },
   data() {
     return {
       co2emission: 300,

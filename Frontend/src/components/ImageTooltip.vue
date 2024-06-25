@@ -3,7 +3,7 @@
     <img :src="imageSrc()" alt="info button" />
     <div
       class="tooltiptext"
-      :class="[tooltipClass, { show }]"
+      :class="[tooltipClass, { show: isTooltipVisible }]"
     >
       <slot>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
@@ -16,8 +16,7 @@
 </template>
 
 <script>
-import catena_info from "@/assets/catena-logo.jpg";
-import info_image from "@/assets/info.png";
+import question from "@/assets/question.png";
 export default {
   props: {
     imgSrc: String,
@@ -30,11 +29,9 @@ export default {
   },
   methods: {
     imageSrc() {
-      if (this.tooltip_image === "catena") {
-        return catena_info;
-      } else {
-        return info_image;
-      }
+      
+        return question;
+      
     },
     checkPosition(event) {
       const tooltip = event.currentTarget.querySelector(".tooltiptext");
@@ -98,13 +95,10 @@ export default {
 }
 
 .tooltip:hover .tooltiptext {
-  transition-delay:2s;
   display: block;
-  
 }
 
-.tooltiptext {
-  transition-delay:2s;
+.tooltip-text.show {
   display: block;
 }
 
@@ -112,7 +106,6 @@ export default {
   left: -65px !important;
   right: 0;
   transform: translateX(0);
-  
 }
 
 .tooltip-right {
@@ -123,12 +116,13 @@ export default {
 .tooltip-top {
   top: auto !important;
   bottom: 100%;
-  margin-bottom: 0 !important;
-  
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .tooltip-bottom {
-  left: -65px !important;
+  top: 100%;
+  margin-top: 10px;
 }
 img {
   margin-top: 1px;

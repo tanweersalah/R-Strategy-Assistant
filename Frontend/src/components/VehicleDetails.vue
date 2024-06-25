@@ -3,7 +3,7 @@
     <base-container class="container" title="High Value Parts">
       <template #content>
         <div v-if="mockData">
-          <dynamic-table slot="content" class="table" :data="mockData" />
+          <dynamic-table slot="content" class="table" :data="mockData" @dataProvissiong="openDataProvisioning" />
         </div>
         <div v-else class="loading">
           <HalfCircleSpinner />
@@ -37,7 +37,11 @@ export default {
     BaseContainer,
     HalfCircleSpinner,
   },
-
+  methods:{
+    openDataProvisioning(){
+      this.$emit("dataProvissiong");
+    }
+  },
   data() {
     return {
       mockService: inject("mockService"),

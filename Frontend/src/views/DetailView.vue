@@ -30,7 +30,11 @@
     <hr />
     <div class="container component-container">
       <transition name="detail-component" appear>
-        <keep-alive><component :is="activeComponent"> </component></keep-alive>
+        <div>
+        <component v-if="activeButton === 3 || activeButton === 4 " :is="activeComponent" @dataProvissiong="openDataProvisioning"> </component>
+        <keep-alive v-else><component :is="activeComponent" @dataProvissiong="openDataProvisioning"> </component></keep-alive>
+      </div>
+        
       </transition>
     </div>
   </div>
@@ -63,6 +67,10 @@ export default {
   },
 
   methods: {
+    openDataProvisioning(){
+      
+      this.setActiveButton(1);
+    },
     setActiveButton(index) {
       this.activeButton = index;
     },

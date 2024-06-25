@@ -9,8 +9,11 @@
     </thead>
     <tbody>
       <tr v-for="(row, rowIndex) in rowCount" :key="rowIndex">
-        <td v-for="(header, index) in Object.keys(data)" :key="index">
-          {{ data[header][rowIndex] || "" }}
+        <td  v-for="(header, index) in Object.keys(data)" :key="index">
+          <div v-if="data[header][rowIndex] === 'Engine'" class="clickable-component" @click="openDataProvisioning()">
+          {{ data[header][rowIndex] || "" }}</div>
+          <div v-else>
+          {{ data[header][rowIndex] || "" }}</div>
         </td>
       </tr>
     </tbody>
@@ -31,6 +34,11 @@ export default {
       return Math.max(...headers.map((header) => this.data[header].length));
     },
   },
+  methods:{
+    openDataProvisioning(){
+      this.$emit("dataProvissiong");
+    }
+  }
 };
 </script>
 
@@ -56,5 +64,16 @@ th {
 .custom-table th,
 .custom-table td {
   border: none;
+}
+
+
+.clickable-component:hover{
+  width: fit-content;
+  padding: 0 3px 0 3px;
+  cursor:pointer;
+  background-color: rgba(38, 32, 32, 0.39);
+  color: aliceblue;
+  border-radius: 10px;
+  
 }
 </style>
