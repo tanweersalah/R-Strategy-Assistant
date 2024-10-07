@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer-content">
+  <q-footer reveal="false" class="footer-content">
     <div class="links">
       <div><router-link to="/documentation/?path=docs">Help</router-link></div>
       <div><router-link to="/contact">Contact</router-link></div>
@@ -22,7 +22,7 @@
         >
       </div>
     </div>
-  </footer>
+  </q-footer>
 </template>
 
 <style scoped>
@@ -30,7 +30,6 @@ a:hover {
   background-color: hsla(160, 100%, 37%, 0.2);
 }
 .footer-content {
-  bottom: 0;
   height: 2.5rem;
   display: flex;
   justify-content: center;

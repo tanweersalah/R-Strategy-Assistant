@@ -1,6 +1,6 @@
 <script setup>
 import { RouterView } from "vue-router";
-import TheHeader from "./components/TheHeader.vue";
+import Header from "./components/Header.vue";
 import TheFooter from "./components/TheFooter.vue";
 import LoginSplash from "./components/LoginSplash.vue";
 import SplashScreenView from "./views/SplashScreenView.vue";
@@ -15,15 +15,19 @@ import SplashScreenView from "./views/SplashScreenView.vue";
 
     <!-- Main App Content -->
     <transition name="fade">
-      <div v-if="!showSplashScreen" class="app-container">
-        <div class="header"><TheHeader /></div>
-
-        <div class="router-view"><RouterView /></div>
-
-        <div class="footer">
-          <TheFooter id="footer" />
+      <q-layout view="lHh lpr lFf" container class="shadow-2 app-container">
+        <div v-if="!showSplashScreen">
+          <Header />
+          <q-scroll-area class="page-container">
+            <div class="home-container">
+              <div class="router-view"><RouterView /></div>
+              <div class="footer">
+                <TheFooter />
+              </div>
+            </div>
+          </q-scroll-area>
         </div>
-      </div>
+      </q-layout>
     </transition>
   </div>
 </template>
@@ -50,33 +54,33 @@ export default {
 
 <style scoped>
 .app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100vh;
   width: 100vw;
 }
 
-.router-view {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex: 1 0 auto;
-  position: relative;
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 70px;
 }
 
-.header {
-  width: 100%;
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 70px);
+  width: 100vw;
+}
+
+.router-view {
+  flex: 1 0 auto !important;
   display: flex;
   justify-content: center;
-
-  box-shadow: 0 2px 4px rgba(2, 2, 2, 0.2);
 }
 
 .footer {
+  flex-shrink: 0;
   background-color: #f3fcf0;
   width: 100%;
-  flex-shrink: 0;
   display: flex;
   justify-content: center;
 }

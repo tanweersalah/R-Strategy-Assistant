@@ -3,7 +3,7 @@ const REDIRECT_URI = window.location.origin;
 const CLIENT_ID = "miw_public";
 const REALM = "ce_assistant";
 const ONLOAD = "login-required";
-const AUTH_ENABLED = true;
+const AUTH_ENABLED = false;
 
 let INIT_OPTIONS = {
   url: IDP_URL,
