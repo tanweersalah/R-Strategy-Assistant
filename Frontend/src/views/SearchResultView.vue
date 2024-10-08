@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <div class="container search-box">
-      <h2>Search results for VIN : {{ searchQuery }}</h2>
+      <h6>Search results for VIN : {{ searchQuery }}</h6>
       <Searchbar class="search-bar" />
     </div>
     <hr />
@@ -101,9 +101,9 @@ hr {
 
 .search-bar {
   justify-self: end;
+  align-self: center;
   margin-right: 15px;
   width: 50%;
-  height: 90%;
 }
 
 .search-card-container {

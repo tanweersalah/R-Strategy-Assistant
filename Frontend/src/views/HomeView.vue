@@ -3,7 +3,7 @@
     <div class="info-box">
       <div class="overlay"></div>
       <div class="overly_description">
-        <h1>About CE-ASSISTANT :</h1>
+        <h4>About CE-ASSISTANT :</h4>
         <p>
           In the dynamic landscape of sustainability and resource conservation,
           the Circular Strategy Assistant (CE-Assistant) emerges as a pioneering
@@ -16,12 +16,13 @@
       </div>
     </div>
     <div class="search-box">
-      <img
+      <q-img
         alt="R Strategy logo"
         class="r-strategy-logo"
         src="@/assets/ce-assistant_logo.png"
       />
       <Searchbar class="search-bar" />
+
       <div class="help">
         Need help? Read our Get
         <a
