@@ -1,7 +1,7 @@
 <template>
   <div class="base-main-container">
     <div class="container-title">
-      <h3>{{ title }}</h3>
+      <h7>{{ title }}</h7>
       <slot name="info"></slot>
     </div>
     <div class="container-content">
@@ -42,11 +42,10 @@ export default {
   padding: 5px 10px 5px 15px;
 }
 
-.container-title h3 {
+.container-title h7 {
   font-weight: bold;
   font-size: 12px;
-
-  margin-bottom: 30px;
+  margin: 0px;
 }
 
 .container-content {

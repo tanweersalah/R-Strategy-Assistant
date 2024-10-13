@@ -3,11 +3,32 @@
     <base-container class="container" title="High Value Parts">
       <template #content>
         <div v-if="mockData">
-          <dynamic-table slot="content" class="table" :data="mockData" @dataProvissiong="openDataProvisioning" />
+          <span class="subheading">Choose part for detailed analysis</span>
+          <dynamic-table
+            slot="content"
+            class="table"
+            :data="mockData"
+            @dataProvissiong="openDataProvisioning"
+          />
         </div>
         <div v-else class="loading">
           <HalfCircleSpinner />
         </div>
+      </template>
+      <template #info>
+        <cx-tooltip imgSrc="info"
+          ><p>
+            Bases on VDI 4080 Learn More :
+            <q-btn
+              rounded
+              size="10px"
+              color="primary"
+              href="https://www.dinmedia.de/de/technische-regel/vdi-4080/118177766"
+              target="blank"
+              >Click Here</q-btn
+            >
+          </p>
+        </cx-tooltip>
       </template>
     </base-container>
     <base-container class="images-container container" title="Available Images">
@@ -29,18 +50,20 @@ import BaseContainer from "./BaseContainer.vue";
 import ImageGrid from "./ImageGrid.vue";
 import { inject } from "vue";
 import HalfCircleSpinner from "../components/LoadingSpinner.vue";
+import CxTooltip from "./CxTooltip.vue";
 
 export default {
   components: {
+    CxTooltip,
     DynamicTable,
     ImageGrid,
     BaseContainer,
     HalfCircleSpinner,
   },
-  methods:{
-    openDataProvisioning(){
+  methods: {
+    openDataProvisioning() {
       this.$emit("dataProvissiong");
-    }
+    },
   },
   data() {
     return {
@@ -69,6 +92,10 @@ export default {
 </script>
 
 <style scoped>
+.subheading {
+  font-size: 12px;
+  text-decoration: underline;
+}
 .component-main-container {
   display: flex;
   justify-content: center;

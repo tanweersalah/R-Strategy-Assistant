@@ -134,6 +134,7 @@ import { inject } from "vue";
 import BaseContainer from "../components/BaseContainer.vue";
 import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 import CxTooltip from "./CxTooltip.vue";
+import catena_info from "@/assets/catena-logo.jpg";
 
 export default {
   components: { BaseContainer, HalfCircleSpinner, CxTooltip },
@@ -142,6 +143,12 @@ export default {
     this.productData = await this.mockService.getEngineDatasByVIN(this.vin);
     this.tooltipData = this.mockService.getTooltipData("engineInformation");
   },
+  method: {
+    catenaLogo() {
+      return catena_info;
+    },
+  },
+
   data() {
     return {
       mockService: inject("mockService"),
@@ -155,6 +162,15 @@ export default {
 </script>
 
 <style scoped>
+.catenaLogo {
+  margin-left: 3px;
+  margin-bottom: 1px;
+  width: 10vw;
+  height: auto;
+  min-width: 5px;
+  max-width: 10px;
+  border-radius: 3px;
+}
 .component-main-container {
   display: flex;
   flex-wrap: wrap;

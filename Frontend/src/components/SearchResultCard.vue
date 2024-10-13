@@ -23,7 +23,11 @@
             }}</cx-tooltip>
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.vehicleBrand }}</div>
+        <div class="value-sub-grid">
+          {{ detailsData.vehicleBrand }}
+
+          <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
+        </div>
       </div>
 
       <div class="info-sub-grid">
@@ -35,7 +39,10 @@
             }}</cx-tooltip>
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.vehicleModel }}</div>
+        <div class="value-sub-grid">
+          {{ detailsData.vehicleModel
+          }}<q-img class="catenaLogo" :src="catenaLogo()" alt="" />
+        </div>
       </div>
 
       <div class="info-sub-grid">
@@ -48,14 +55,17 @@
           </div>
         </div>
 
-        <div class="value-sub-grid">{{ detailsData.productionPeriod }}</div>
+        <div class="value-sub-grid">
+          {{ detailsData.productionPeriod
+          }}<q-img class="catenaLogo" :src="catenaLogo()" alt="" />
+        </div>
       </div>
 
       <div class="info-sub-grid">
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Fuel Type</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena"></cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.fuelType }}</div>
@@ -94,7 +104,10 @@
             }}</cx-tooltip>
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.catenaxID }}​</div>
+        <div class="value-sub-grid">
+          {{ detailsData.catenaxID
+          }}<q-img class="catenaLogo" :src="catenaLogo()" alt="" />​
+        </div>
       </div>
 
       <div class="info-sub-grid">
@@ -106,7 +119,10 @@
             </cx-tooltip>
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.vin }}</div>
+        <div class="value-sub-grid">
+          {{ detailsData.vin
+          }}<q-img class="catenaLogo" :src="catenaLogo()" alt="" />
+        </div>
       </div>
 
       <div class="info-sub-grid">
@@ -118,7 +134,10 @@
             </cx-tooltip>
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.firstRegistration }}</div>
+        <div class="value-sub-grid">
+          {{ detailsData.firstRegistration
+          }}<q-img class="catenaLogo" :src="catenaLogo()" alt="" />
+        </div>
       </div>
 
       <div class="info-sub-grid">
@@ -131,7 +150,8 @@
           </div>
         </div>
         <div class="value-sub-grid">
-          {{ detailsData.mileage }}
+          {{ detailsData.mileage
+          }}<q-img class="catenaLogo" :src="catenaLogo()" alt="" />
         </div>
       </div>
 
@@ -180,6 +200,7 @@
 <script>
 import { inject } from "vue";
 import CxTooltip from "./CxTooltip.vue";
+import catena_info from "@/assets/catena-logo.jpg";
 
 export default {
   components: { CxTooltip },
@@ -206,6 +227,9 @@ export default {
     this.tooltipData = this.mockService.getTooltipData("resultCard");
   },
   methods: {
+    catenaLogo() {
+      return catena_info;
+    },
     redirectToDetails() {
       sessionStorage.setItem(
         "vehicleDetails",
@@ -305,15 +329,14 @@ export default {
   margin: 5px;
 }
 
-.image-container img {
-  width: auto;
+.catenaLogo {
+  margin-left: 3px;
+  margin-bottom: 1px;
+  width: 10vw;
   height: auto;
-  min-width: 80px;
-  max-width: 120px;
-  max-height: 200px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  min-width: 5px;
+  max-width: 10px;
+  border-radius: 3px;
 }
 .sub_heading {
   font-size: 0.6rem;
