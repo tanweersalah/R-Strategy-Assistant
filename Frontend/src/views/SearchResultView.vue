@@ -21,7 +21,13 @@
         <div v-else-if="searchCompleted && !searchResult" :key="searchQuery">
           <h2>No result found</h2>
         </div>
-        <div v-else class="loading"><HalfCircleSpinner /></div>
+
+        <div v-else class="loading">
+          <SearchResultCardLoading
+            class="main-container"
+            :currentStep="currentStep"
+          />
+        </div>
       </transition-group>
     </div>
   </div>
@@ -30,12 +36,14 @@
 <script>
 import Searchbar from "../components/Searchbar.vue";
 import SearchResultCard from "../components/SearchResultCard.vue";
+import SearchResultCardLoading from "../components/SearchResultCardLoading.vue";
 import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 import { inject } from "vue";
 
 export default {
   components: {
     SearchResultCard,
+    SearchResultCardLoading,
     Searchbar,
     HalfCircleSpinner,
   },
@@ -46,11 +54,22 @@ export default {
       searchResult: null,
       searchQuery: null,
       searchCompleted: false,
+      time_delay: 2000,
+      currentStep: 0,
     };
   },
   beforeMount() {
     this.searchQuery = this.$route.query.q;
-    this.searchByVIN();
+  },
+  mounted() {
+    let intervalId = setInterval(() => {
+      this.currentStep += 1;
+      console.log(this.currentStep);
+      if (this.currentStep === 5) {
+        clearInterval(intervalId); // Stop the interval when count reaches 5
+        this.searchByVIN();
+      }
+    }, this.time_delay);
   },
   watch: {
     // Watch the $route object for changes
@@ -63,12 +82,13 @@ export default {
     async searchByVIN() {
       this.searchResult = null;
       this.searchCompleted = false;
-      // Simulate a delay
 
-      this.searchResult = await this.mockService.getResultByVIN(
-        this.searchQuery
-      );
-      this.searchCompleted = true;
+      if (this.currentStep == 5) {
+        this.searchResult = await this.mockService.getResultByVIN(
+          this.searchQuery
+        );
+      }
+      this.searchCompleted = false;
     },
   },
 };
