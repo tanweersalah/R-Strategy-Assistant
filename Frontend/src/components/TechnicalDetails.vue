@@ -11,11 +11,14 @@
             THE COUNCIL on circularity requirements for vehicle design and on
             management of end-of-life vehicles, amending Regulations (EU)
             2018/858 and 2019/1020 and repealing Directives 2000/53/EC and
-            2005/64/EC Learn More :
-            <i
+            2005/64/EC :
+            <q-btn
+              rounded
+              size="10px"
+              color="primary"
               href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52023PC0451"
               target="blank"
-              >Click Here</i
+              >Learn More</q-btn
             >
           </p>
         </cx-tooltip>
@@ -57,10 +60,13 @@
         <cx-tooltip imgSrc="info"
           ><p>
             Bases on VDI 4080 Learn More :
-            <i
+            <q-btn
+              rounded
+              size="10px"
+              color="primary"
               href="https://www.dinmedia.de/de/technische-regel/vdi-4080/118177766"
               target="blank"
-              >Click Here</i
+              >Click Here</q-btn
             >
           </p>
         </cx-tooltip>

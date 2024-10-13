@@ -1,10 +1,17 @@
 {
   "resultCard": {
+    "productData": "CX-0126 Industry Core: Part Type",
+    "instanceData": "CX-0127 Industry Core: Part Instance",
     "vehicleBrand": "CX - 0019 Aspect Model: SerialPart - manufacturerId",
     "vehicleModel": "CX - 0019 Aspect Model: SerialPart - nameAtManufacturer",
     "productionPeriod": "CX – 0043 Aspect Model: PartTypeInformation – functionValidFrom, functionValidUntil",
     "catenaxID": "CX - 0019 Aspect Model: SerialPart - catenaXId",
     "vin": "CX - 0019 Aspect Model: SerialPart - vin",
+    "firstRegistration": "CX-0037 Vehicle Product Description - soldDate",
+    "mileage": "CX-0057 Remaining Useful Life - operatingHours",
+    "pcfData": "CX-0026 Product Carbon Footprint - PCF",
+    "status": "CX-0103 Digital Product Passport - status",
+    "kba": "Public data",
     "certificateOfDecomisioning": "CX - 0019 Aspect Model: DecommissioningCertificate"
   },
   "engineInformation": {

@@ -2,12 +2,21 @@
   <div>
     <div class="container card-container">
       <div class="item image-container">
-        <img :src="`/demo-images/${imageUrl}`" alt="Image" class="thumbnail" />
+        <q-img
+          :src="`/demo-images/${imageUrl}`"
+          alt="Image"
+          class="thumbnail"
+        />
       </div>
-      <div class="sub_heading heading_1">Product Specific Data</div>
+      <div class="sub_heading heading_1">
+        Product Specific Data
+        <cx-tooltip tooltip_image="catena">{{
+          tooltipData.productData
+        }}</cx-tooltip>
+      </div>
       <div class="info-sub-grid">
         <div class="key-sub-grid">
-          <div class="key-sub-grid-text">Vehicle Brand</div>
+          <div class="key-sub-grid-text">Manufacturer</div>
           <div class="source-info-sub-grid">
             <cx-tooltip tooltip_image="catena">{{
               tooltipData.vehicleBrand
@@ -19,7 +28,7 @@
 
       <div class="info-sub-grid">
         <div class="key-sub-grid">
-          <div class="key-sub-grid-text">Vehicle Model</div>
+          <div class="key-sub-grid-text">Model</div>
           <div class="source-info-sub-grid">
             <cx-tooltip tooltip_image="catena">{{
               tooltipData.vehicleModel
@@ -56,7 +65,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">KBA Number</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="info">{{ tooltipData.kba }}</cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.kbaNumber }}</div>
@@ -65,17 +74,22 @@
 
       <hr class="border-line" />
       <div class="detail-button">
-        <button v-if="viewDetailsButton" @click="redirectToDetails">
+        <q-btn v-if="viewDetails" @click="redirectToDetails">
           View Details
-        </button>
+        </q-btn>
       </div>
-      <div class="sub_heading heading_2">Instance Specific Data</div>
+      <div class="sub_heading heading_2">
+        Instance Specific Data
+        <cx-tooltip tooltip_image="catena">{{
+          tooltipData.instanceData
+        }}</cx-tooltip>
+      </div>
 
       <div class="info-sub-grid">
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Catena X - ID</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena">{{
+            <cx-tooltip tooltip_image="info">{{
               tooltipData.catenaxID
             }}</cx-tooltip>
           </div>
@@ -99,7 +113,9 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">First Registration</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">
+              {{ tooltipData.firstRegistration }}
+            </cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.firstRegistration }}</div>
@@ -107,35 +123,55 @@
 
       <div class="info-sub-grid">
         <div class="key-sub-grid">
-          <div class="key-sub-grid-text">Certificate of Decomisioning</div>
+          <div class="key-sub-grid-text">Mileage</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena">
-              {{ tooltipData.certificateOfDecomisioning }}
+            <cx-tooltip tooltip_image="info">
+              {{ tooltipData.mileage }}
             </cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">
-          {{ detailsData.certificateOfDecomisioning }}
+          {{ detailsData.mileage }}
         </div>
       </div>
 
       <div class="info-sub-grid">
         <div class="key-sub-grid">
-          <div class="key-sub-grid-text">Mileage</div>
+          <div class="key-sub-grid-text">PCF Data</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip v-show="false" tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="info">
+              {{ tooltipData.pcfData }}
+            </cx-tooltip>
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.mileage }}</div>
+        <div class="value-sub-grid">
+          <span class="text-red" v-if="viewDetails">To be requested</span>
+          <q-btn v-if="!viewDetails" outline class="pcf-button"
+            >Request PCF Data</q-btn
+          >
+        </div>
       </div>
       <div class="info-sub-grid">
         <div class="key-sub-grid">
-          <div class="key-sub-grid-text">Damage</div>
+          <div class="key-sub-grid-text">Status</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip v-show="false" tooltip_image="catena"> </cx-tooltip>
+            <cx-tooltip tooltip_image="info">
+              {{ tooltipData.status }}</cx-tooltip
+            >
           </div>
         </div>
-        <div class="value-sub-grid">{{ detailsData.damage }}</div>
+        <div class="value-sub-grid">
+          <span class="text-red" v-if="viewDetails">To be updated</span>
+          <q-select
+            v-if="!viewDetails"
+            filled
+            v-model="selectedStatus"
+            :options="statusOptions"
+            dense
+            options-dense
+            class="status-dropdown"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -150,12 +186,20 @@ export default {
   props: {
     imageUrl: String,
     detailsData: Object,
-    viewDetailsButton: Boolean,
+    viewDetails: Boolean,
   },
   data() {
     return {
       mockService: inject("mockService"),
       tooltipData: null,
+      selectedStatus: "Select Status",
+      statusOptions: [
+        "Overhauled",
+        "Decomissioned",
+        "Option C",
+        "Option D",
+        "Option E",
+      ],
     };
   },
   beforeMount() {
@@ -177,6 +221,29 @@ export default {
 </script>
 
 <style scoped>
+.text-red {
+  color: rgb(194, 15, 15);
+}
+.status-dropdown {
+  width: 80%;
+
+  font-size: 10px;
+}
+.pcf-button {
+  color: #1c58d9;
+  width: 70%;
+  padding: 0px;
+  font-size: 10px;
+}
+.thumbnail {
+  height: 200px;
+  width: 20vw;
+  max-width: 160px;
+  max-height: 200px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 .card-container {
   border-radius: 5px;
   font-size: 1rem;
@@ -219,14 +286,15 @@ export default {
 }
 
 .key-sub-grid-text {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: bold;
   width: fit-content;
 }
 
 .value-sub-grid {
   margin-right: 10px;
-  font-size: 0.7rem;
+
+  font-size: clamp(0.5rem, 1vw, 0.9rem);
   color: #767d93;
 }
 .image-container {
@@ -249,6 +317,9 @@ export default {
 }
 .sub_heading {
   font-size: 0.6rem;
+  gap: 5px;
+  display: flex;
+  margin-bottom: 5px;
 }
 
 .heading_1 {
@@ -275,7 +346,7 @@ export default {
 }
 
 .detail-button button {
-  width: 90%;
+  width: 80%;
   height: fit-content;
   border: 1px solid #ccc;
   background-color: #8db759bb;
@@ -285,6 +356,7 @@ export default {
   cursor: pointer;
   padding: 5px;
   margin: 5px;
+  font-size: clamp(0.5rem, 1vw, 0.7rem);
 }
 .detail-button button:hover {
   box-shadow: 2px 2px 5px rgb(115, 110, 110);

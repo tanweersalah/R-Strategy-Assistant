@@ -12,8 +12,10 @@
     "@quasar/extras": "^1.16.12",
     "keycloak-js": "^24.0.5",
     "quasar": "^2.17.0",
+    "tippy.js": "^6.3.7",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue-tippy": "^6.4.4"
   },
   "devDependencies": {
     "@quasar/vite-plugin": "^1.7.0",

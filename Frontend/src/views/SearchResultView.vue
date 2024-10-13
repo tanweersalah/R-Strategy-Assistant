@@ -1,7 +1,10 @@
 <template>
   <div class="main-container">
     <div class="container search-box">
-      <h6>Search results for VIN : {{ searchQuery }}</h6>
+      <div>
+        <h6>Search results for VIN :</h6>
+        <span>{{ searchQuery }}</span>
+      </div>
       <Searchbar class="search-bar" />
     </div>
     <hr />
@@ -12,7 +15,7 @@
             class="grid_card"
             :image-url="searchResult.imageUrl"
             :detailsData="searchResult.detailsData"
-            :viewDetailsButton="true"
+            :viewDetails="true"
           />
         </div>
         <div v-else-if="searchCompleted && !searchResult" :key="searchQuery">

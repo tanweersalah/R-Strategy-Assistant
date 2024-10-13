@@ -1,21 +1,46 @@
 <template>
-  <div class="tooltip" @mouseenter="checkPosition" @mouseleave="resetPosition">
-    <img :src="imageSrc()" alt="info button" />
-    <div
-      class="tooltiptext"
-      :class="[tooltipClass, { show }]"
+  <div>
+    <tippy interactive="true" allowHTML="true">
+      <q-icon name="info_outline" size="15px" color="blue-grey-6" />
+      <template #content>
+        <slot>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          asperiores, cum perferendis dolorem neque nulla. Expedita, accusamus
+          delectus iste quo ratione autem rem ipsum atque. Eveniet eligendi
+          perferendis quas. Voluptate!
+        </slot>
+      </template>
+    </tippy>
+    <!-- <q-img
+      :src="imageSrc()"
+      alt="info button"
+      class="tooltip-image"
+      @click="tooltipInteract"
     >
-      <slot>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-        asperiores, cum perferendis dolorem neque nulla. Expedita, accusamus
-        delectus iste quo ratione autem rem ipsum atque. Eveniet eligendi
-        perferendis quas. Voluptate!
-      </slot>
-    </div>
+      <q-tooltip
+        v-model="showTooltip"
+        :delay="showDelay"
+        :hide-delay="hideDelay"
+        anchor="bottom middle"
+        self="top middle"
+        @show="onShow"
+        @hide="onHide"
+        @mouseenter="clearHideTimer"
+        @mouseleave="startHideTimer"
+      >
+        <slot>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          asperiores, cum perferendis dolorem neque nulla. Expedita, accusamus
+          delectus iste quo ratione autem rem ipsum atque. Eveniet eligendi
+          perferendis quas. Voluptate!
+        </slot>
+      </q-tooltip>
+    </q-img> -->
   </div>
 </template>
 
 <script>
+import "tippy.js/dist/tippy.css";
 import catena_info from "@/assets/catena-logo.jpg";
 import info_image from "@/assets/info.png";
 export default {
@@ -26,44 +51,41 @@ export default {
   data() {
     return {
       tooltipClass: "",
+      showTooltip: false,
+      showDelay: 0,
+      hideDelay: 1000,
+      hideTimer: null,
     };
   },
   methods: {
+    startHideTimer() {
+      clearHideTimer(); // Clear any existing timer
+      this.hideTimer = setTimeout(() => {
+        this.showTooltip = false;
+      }, 1000); // 1 second delay
+    },
+    clearHideTimer() {
+      if (this.hideTimer) {
+        clearTimeout(this.hideTimer);
+        this.hideTimer = null;
+      }
+    },
+    onShow() {
+      clearHideTimer();
+    },
+
+    onHide() {
+      startHideTimer();
+    },
+    tooltipInteract() {
+      this.show = !this.show;
+    },
     imageSrc() {
       if (this.tooltip_image === "catena") {
         return catena_info;
       } else {
         return info_image;
       }
-    },
-    checkPosition(event) {
-      const tooltip = event.currentTarget.querySelector(".tooltiptext");
-      const rect = tooltip.getBoundingClientRect();
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-
-      // Reset class
-      this.tooltipClass = "";
-
-      // Check right boundary
-      if (rect.right > screenWidth) {
-        this.tooltipClass = "tooltip-left";
-      }
-      // Check left boundary
-      else if (rect.left < 0) {
-        this.tooltipClass = "tooltip-right";
-      }
-      // Check bottom boundary
-      if (rect.bottom > screenHeight) {
-        this.tooltipClass = "tooltip-top";
-      }
-      // Check top boundary
-      else if (rect.top < 0) {
-        this.tooltipClass = "tooltip-bottom";
-      }
-    },
-    resetPosition() {
-      this.tooltipClass = "";
     },
   },
 };
@@ -98,13 +120,12 @@ export default {
 }
 
 .tooltip:hover .tooltiptext {
-  transition-delay:2s;
+  transition-delay: 2s;
   display: block;
-  
 }
 
 .tooltiptext {
-  transition-delay:2s;
+  transition-delay: 2s;
   display: block;
 }
 
@@ -112,7 +133,6 @@ export default {
   left: -65px !important;
   right: 0;
   transform: translateX(0);
-  
 }
 
 .tooltip-right {
@@ -124,13 +144,12 @@ export default {
   top: auto !important;
   bottom: 100%;
   margin-bottom: 0 !important;
-  
 }
 
 .tooltip-bottom {
   left: -65px !important;
 }
-img {
+.tooltip-image {
   margin-top: 1px;
   width: 10vw;
   height: auto;
