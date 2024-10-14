@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <div class="container documentation-container">
-      <h2>Documentations :</h2>
+      <h4>Documentations :</h4>
       <div class="documentation-links">
         <button @click="openLinkInNewTab('circularityKit')" class="default-btn">
           Circularity Kit
@@ -25,7 +25,7 @@
     </div>
 
     <div class="container publication-container">
-      <h2>Publications :</h2>
+      <h4>Publications :</h4>
       <p>
         If you are eager to dive deeper into the world of the CE-Strategy
         Assistant, including its data provision via the Digital Twin and expert
@@ -81,14 +81,14 @@
     </div>
 
     <div class="container architecture-container">
-      <h2>Architecture of the CE - Assistant :</h2>
-      <div class="architecure-image">
-        <img src="@/assets/ce-architecture-s.png" alt="" />
+      <h4>Architecture of the CE - Assistant :</h4>
+      <div >
+        <q-img class="architecure-image" src="@/assets/ce-architecture-s.png" alt="" />
       </div>
     </div>
 
     <div class="container data-model-container">
-      <h2>Data Models :</h2>
+      <h4>Data Models :</h4>
       <button @click="openLinkInNewTab('dataModels')" class="default-btn">
         Semantic Models
       </button>
@@ -139,7 +139,7 @@ li {
   margin: 20px;
 }
 
-.architecure-image img {
+.architecure-image  {
   max-width: 90%;
   border: 1px solid #ccc;
   border-radius: 20px;

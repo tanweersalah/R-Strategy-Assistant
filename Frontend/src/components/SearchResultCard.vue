@@ -65,7 +65,7 @@
         <div class="key-sub-grid">
           <div class="key-sub-grid-text">Fuel Type</div>
           <div class="source-info-sub-grid">
-            <cx-tooltip tooltip_image="catena"></cx-tooltip>
+            <cx-tooltip tooltip_image="catena">{{ tooltipData.fuelType }}</cx-tooltip>
           </div>
         </div>
         <div class="value-sub-grid">{{ detailsData.fuelType }}</div>

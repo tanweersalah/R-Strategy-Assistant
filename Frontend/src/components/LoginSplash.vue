@@ -5,7 +5,7 @@
       class="r-strategy-logo"
       src="@/assets/ce-assistant_logo.png"
     />
-    <div><h2>Signing in ...</h2></div>
+    <div><h5>Signing in ...</h5></div>
   </div>
 </template>
 

@@ -1,6 +1,7 @@
 {
   "resultCard": {
     "productData": "CX-0126 Industry Core: Part Type",
+    "fuelType": "Public data",
     "instanceData": "CX-0127 Industry Core: Part Instance",
     "vehicleBrand": "CX - 0019 Aspect Model: SerialPart - manufacturerId",
     "vehicleModel": "CX - 0019 Aspect Model: SerialPart - nameAtManufacturer",

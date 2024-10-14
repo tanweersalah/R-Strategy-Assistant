@@ -11,10 +11,10 @@
         </cx-tooltip>
       </template>
       <template #content>
-        <h3 class="grid-description">
+        <h7 class="grid-description">
           Life cycle impact assessment based on ISO 14040 and ISO 14044.
           The calculation consits of real life data and Ecoinvent data.​ ​
-        </h3>
+        </h7>
         <div class="bargraph-main-container-grid">
           <div class="new-production top-grid-item-one-column">
             <div class="grid-item-title"></div>

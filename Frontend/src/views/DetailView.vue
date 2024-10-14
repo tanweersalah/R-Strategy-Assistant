@@ -23,7 +23,7 @@
           src="@/assets/dt_update.png"
           alt=""
         />
-        <i v-else :class="button.icon"></i>
+        <q-icon v-else :name="button.icon"/>
         <span>{{ button.text }}</span>
       </div>
     </div>
@@ -98,30 +98,30 @@ export default {
       buttons: [
         {
           text: "Vehicle Details",
-          icon: "fa fa-info-circle",
+          icon: "info",
           component: VehicleDetails,
         },
         {
           text: "Data Provisioning of Components and Materials",
-          icon: "fa fa-database",
+          icon: "sync_alt",
           component: DataProvisioning,
         },
         {
           text: "Technical Assessment",
-          icon: "fa fa-cogs",
+          icon: "dvr",
           component: TechnicalDetails,
         },
         {
           text: "Environmental Assessment",
-          icon: "fa fa-globe",
+          icon: "eco",
           component: EnvironmentalAssessment,
         },
         {
           text: "Digital Twin Update",
-          icon: "fa fa-globe",
+          icon: "globe",
           component: DigitalTwinUpdate,
         },
-        { text: "Feedback", icon: "fa fa-comments", component: Feedback },
+        { text: "Feedback", icon: "forum", component: Feedback },
       ],
     };
   },
