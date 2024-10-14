@@ -18,15 +18,7 @@
       <template #info>
         <cx-tooltip imgSrc="info"
           ><p>
-            Bases on VDI 4080 Learn More :
-            <q-btn
-              rounded
-              size="10px"
-              color="primary"
-              href="https://www.dinmedia.de/de/technische-regel/vdi-4080/118177766"
-              target="blank"
-              >Click Here</q-btn
-            >
+            Identified high value part based on research by Fraunhofer IPK
           </p>
         </cx-tooltip>
       </template>

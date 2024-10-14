@@ -23,6 +23,7 @@
 
             <div class="item-value">
               {{ productData.productSpecificData.productName }}
+              <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
 
@@ -36,7 +37,7 @@
             </div>
 
             <div class="item-value">
-              {{ productData.productSpecificData.oeNumber }}
+              {{ productData.productSpecificData.oeNumber }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
 
@@ -44,13 +45,13 @@
             <div class="item-key">Weight (kg)</div>
 
             <div class="info-icon">
-              <cx-tooltip v-show="false" tooltip_image="catena">
+              <cx-tooltip  tooltip_image="catena">
                 {{ tooltipData.catenaXId }}</cx-tooltip
               >
             </div>
 
             <div class="item-value">
-              {{ productData.productSpecificData.weightKg }}
+              {{ productData.productSpecificData.weightKg }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
           <hr />
@@ -66,7 +67,7 @@
             </div>
 
             <div class="item-value">
-              {{ productData.instanceSpecificData.catenaXId }}
+              {{ productData.instanceSpecificData.catenaXId }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
 
@@ -80,7 +81,7 @@
             </div>
 
             <div class="item-value">
-              {{ productData.instanceSpecificData.serialNumber }}
+              {{ productData.instanceSpecificData.serialNumber }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
 
@@ -93,20 +94,20 @@
             </div>
 
             <div class="item-value">
-              {{ productData.instanceSpecificData.yearOfManufacturing }}
+              {{ productData.instanceSpecificData.yearOfManufacturing }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
 
           <div class="section-items">
             <div class="item-key">Mileage (km)</div>
             <div class="info-icon">
-              <cx-tooltip v-show="false" tooltip_image="catena">
-                <li>{{ tooltipData.lifeCycle }}</li>
+              <cx-tooltip  tooltip_image="catena">
+                <li>{{ tooltipData.mileage }}</li>
               </cx-tooltip>
             </div>
 
             <div class="item-value">
-              {{ productData.instanceSpecificData.mileageKm }}
+              {{ productData.instanceSpecificData.mileageKm }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
             </div>
           </div>
 
@@ -119,7 +120,22 @@
             </div>
 
             <div class="item-value">
-              {{ productData.instanceSpecificData.lifeCyclePhaseOfComponent }}
+              {{ productData.instanceSpecificData.lifeCyclePhaseOfComponent }} <q-img class="catenaLogo" :src="catenaLogo()" alt="" />
+            </div>
+          </div>
+
+          <div class="section-items">
+            <div class="item-key">PCF Data (kg CO₂EQ)</div>
+            <div class="info-icon">
+              <cx-tooltip  tooltip_image="catena">
+                <li>{{ tooltipData.mileage }}</li>
+              </cx-tooltip>
+            </div>
+
+            <div class="item-value">
+              <q-btn outline class="pcf-button"
+            >Request PCF Data</q-btn
+          >
             </div>
           </div>
         </div>
@@ -143,7 +159,7 @@ export default {
     this.productData = await this.mockService.getEngineDatasByVIN(this.vin);
     this.tooltipData = this.mockService.getTooltipData("engineInformation");
   },
-  method: {
+  methods: {
     catenaLogo() {
       return catena_info;
     },
@@ -162,6 +178,12 @@ export default {
 </script>
 
 <style scoped>
+.pcf-button {
+  color: #1c58d9;
+  width: 60%;
+  padding: 0px;
+  font-size: 10px;
+}
 .catenaLogo {
   margin-left: 3px;
   margin-bottom: 1px;

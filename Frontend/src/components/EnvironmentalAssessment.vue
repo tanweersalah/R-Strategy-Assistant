@@ -38,7 +38,7 @@
                 <button class="default-btn">Reuse</button>
               </div>
               <div class="grid-item-bargraph">
-                <cx-tooltip imgSrc="info" class="tooltip-top-right"
+                <cx-tooltip imgSrc="catena" class="tooltip-top-right"
                   ><p>
                     Results from the project Digma-DT, mass allocation based on
                     ISO 14040 and 14044.​
@@ -174,10 +174,9 @@ export default {
   justify-self: end;
   align-self: start;
   padding: 3px 8px 0 0;
-  color: #000000 !important;
 }
 .tooltip-top-right p {
-  color: #000000 !important;
+  
 }
 .grid-item-reuse .grid-item-bargraph {
 }

@@ -39,8 +39,10 @@
           </div>
 
           <div class="content-item">
-            <div class="item-key">Remaining Lifetime (km)</div>
-            <div class="item-value">200,000</div>
+            <div class="item-key">Remaining Lifetime (km) <cx-tooltip v-show="true" tooltip_image="catena">
+                <p>CX-0057 Remaining Useful Life - remainingOperatingHours</p></cx-tooltip
+              ></div>
+            <div class="item-value">200,000 <q-img class="catenaLogo" :src="catenaLogo()" alt="" /></div>
           </div>
 
           <div class="content-item">
@@ -80,7 +82,7 @@
                 <input
                   class="default-input"
                   type="text"
-                  value="34213"
+                  value="123478"
                   disabled
                 />
               </div>
@@ -218,6 +220,7 @@
 <script>
 import BaseContainer from "./BaseContainer.vue";
 import CxTooltip from "./CxTooltip.vue";
+import catena_info from "@/assets/catena-logo.jpg";
 import HalfCircleSpinner from "../components/LoadingSpinner.vue";
 
 export default {
@@ -230,6 +233,9 @@ export default {
     };
   },
   methods: {
+    catenaLogo() {
+      return catena_info;
+    },
     determineQuality() {
       this.qualityInProgress = true;
       setTimeout(() => {
@@ -277,6 +283,17 @@ hr {
 .tool-tip-image {
   width: 40vw;
 }
+.catenaLogo {
+  margin-left: 3px;
+  margin-bottom: 1px;
+  width: 10vw;
+  height: auto;
+  min-width: 5px;
+  max-width: 10px;
+  border-radius: 3px;
+}
+.item-key{display: flex;
+justify-content: space-between;}
 
 .item-key,
 .item-value {

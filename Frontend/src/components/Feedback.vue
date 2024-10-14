@@ -1,12 +1,17 @@
 <template>
   <div class="component-main-container">
     <base-container title="Feedback" class="container">
+    <template #info> <cx-tooltip imgSrc="catena" class="tooltip-top-right"
+                  ><p>
+                    Qualitative feedback to design with data model to be created.
+                  </p>
+                </cx-tooltip></template>
       <template #content>
         <div v-if="sendingFeedback" class="loading-container">
           <half-circle-spinner></half-circle-spinner>
         </div>
         <div v-else-if="feedbackSent" class="sent-container">
-          <p>You feedback has been sent to the manufacturer.</p>
+          <p>You feedback has been sent to the manufacturer to support design.</p>
           <button class="send-feedback default-btn" @click="resetFeedback">
             Send New Feedback
           </button>
@@ -35,8 +40,9 @@
 <script>
 import BaseContainer from "../components/BaseContainer.vue";
 import HalfCircleSpinner from "../components/LoadingSpinner.vue";
+import CxTooltip from "./CxTooltip.vue";
 export default {
-  components: { BaseContainer, HalfCircleSpinner },
+  components: { CxTooltip,BaseContainer, HalfCircleSpinner },
   data() {
     return {
       feedbackSent: false,
